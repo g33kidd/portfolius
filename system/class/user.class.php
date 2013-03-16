@@ -39,8 +39,11 @@ Class user {
 		}
 	}
 
-	public static function site_count() {
-		
+	public static function site_count($id) {
+		global $db;
+		$query = $db->query("SELECT id FROM sites WHERE owner='{$id}'");
+		$count = $query->rowCount();
+		return $count;
 	}
 	
 	public static function check_email_address($email) {

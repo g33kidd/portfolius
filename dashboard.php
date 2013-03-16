@@ -1,3 +1,4 @@
+<? include_once("system/init.php"); ?>
 <!doctype html>
 <html lang="en">
 	
@@ -21,6 +22,28 @@
 						<li><a href="#">Social</a></li>
 					</ul>
 				</div>
+			</div>
+		</div>
+		
+		<div class="content">
+			<div class="container">
+				<? echo $user->site_count('1'); ?>
+				
+				<?php
+				if($user->site_count('1')==1){
+					echo "Site is already created!";
+				}else{
+					$config = array('owner'=>1,'title'=>'Joshua Kidd','subtitle'=>'just another web developer','theme'=>'metro');
+					$create_site = $site->create($config);
+					if($create_site){
+						echo "Site has been created just now!";
+					}else{
+						echo "ERROR";
+					}
+				}
+				
+				
+				?>
 			</div>
 		</div>
 		

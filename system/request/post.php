@@ -7,10 +7,10 @@ switch($_POST['request']) {
 	
 	case 'register':
 		
-		$first = $_POST['firstname'];
-		$last = $_POST['lastname'];
-		$email = $_POST['email'];
-		$pass = $_POST['password'];
+		$first = htmlentities($_POST['firstname']);
+		$last = htmlentities($_POST['lastname']);
+		$email = htmlentities($_POST['email']);
+		$pass = htmlentities($_POST['password']);
 		$data = array('firstname'=>$first,'lastname'=>$last,'email'=>$email,'password'=>$pass);
 		
 		if(!empty($first)&&!empty($last)&&!empty($email)&&!empty($pass)){
@@ -35,6 +35,9 @@ switch($_POST['request']) {
 		
 	break;
 	case 'login':
+		echo "Coming Soon!";
+	break;
+	case 'site_count':
 		echo "Coming Soon!";
 	break;
 	
