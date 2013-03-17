@@ -1,4 +1,4 @@
-<? include_once("system/init.php"); ?>
+<?php include_once("system/init.php"); ?>
 <!doctype html>
 <html lang="en">
 	
@@ -28,7 +28,11 @@
 		
 		<div class="content">
 			<div class="container">
+<<<<<<< HEAD
 				<? echo $user->site_count('1'); ?>
+=======
+				<?php echo $user->site_count('2'); ?>
+>>>>>>> refs/heads/unbreaks
 				
 				<?php
 				if($user->site_count('1')==1){

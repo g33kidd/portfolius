@@ -9,8 +9,28 @@ $(document).ready(function() {
 			if (response.status == 'success'){
 				switch(response.trigger) {
 					case '0':
-						$('#signup').fadeOut('slow', function() {
+						$('#msg').fadeOut('slow', function() {
 							$(this).html('<div class="complete"> Account Successfully Created! </div> <a href="dashboard.php" class="btn">Go to Dashboard.</button>')
+						}).fadeIn('fast');
+						break;
+				}
+			}else if(response.status == 'error'){
+				alert('There was an error: ' + response.type);
+			}
+			
+		})
+	});
+		$('#login').submit(function(event) {
+		event.preventDefault();
+		var data = $(this).serializeArray();
+		$.post('system/request/post.php', data, function(response) {
+			response = jQuery.parseJSON(response);
+			console.log(response);
+			if (response.status == 'success'){
+				switch(response.trigger) {
+					case '0':
+						$('#msg').fadeOut('slow', function() {
+							$(this).html('<div class="complete"> Logged in, transfering! </div> <a href="dashboard.php" class="btn">Go to Dashboard.</button>')
 						}).fadeIn('fast');
 						break;
 				}

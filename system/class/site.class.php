@@ -85,6 +85,10 @@ Class site {
 		$this->phone = $options['phone'];
 		$this->website = $options['website'];
 		$this->theme = $options['theme'];
+<<<<<<< HEAD
+=======
+		$this->custom = 0;
+>>>>>>> refs/heads/unbreaks
 		
 	}
 

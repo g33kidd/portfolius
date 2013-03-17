@@ -35,7 +35,7 @@ switch($_POST['request']) {
 		
 	break;
 	case 'login':
-		echo "Coming Soon!";
+		$user->validate($_POST['lemail'], $_POST['lpassword']);
 	break;
 	case 'site_count':
 		echo "Coming Soon!";

@@ -86,7 +86,26 @@ Class user {
 	  }
 	  return true;
 	}
-	
+	private function validate($email, $pw, $remember)
+        {
+            $pw = md5($pw);
+            $db->query("SELECT * FROM `users` WHERE `email` = '".$email."' AND `password` = '".self::genHash($pw)."' LIMIT 1");
+            if($query->rowCount())
+            {
+                $result = $query->fetch(PDO::FETCH_COLUMN);
+                $_SESSION['loggedin']   = true;
+                $_SESSION['firstName']  = $result['firstname'];
+                $_SESSION['lastName']   = $result['lastname'];
+                $_SESSION['email']      = $result['email'];
+                if($remember)
+                {
+                    setcookie("port_username", $email, time() + 60 * 60 * 24 * 365, "/");
+                    setcookie("port_password", self::genHash($pw), time() + 60 * 60 * 24 * 365, "/");
+                }
+            }
+            else
+                die("error");
+        }
 }
 
 ?>
