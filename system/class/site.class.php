@@ -2,9 +2,13 @@
 
 Class site {
 	
-	protected $title;
-	protected $subtitle;
-	protected $theme;
+	// Site variables
+	public $title;
+	public $subtitle;
+	public $email;
+	public $phone;
+	public $website;
+	public $theme;
 	
 	/*
 	 * @data - variables for site configuration
@@ -44,18 +48,31 @@ Class site {
 		return $result;
 	}
 	
-	public static function initialize($id) {
+	public function initialize($id) {
+		
 		global $db;
 		// get site configuration.
 		$options = self::options($id);
 		$options = json_decode($options, true);
 		
-		echo "<pre>";
-		print_r($options);
-		echo "</pre>";
-				
 		$this->title = $options['title'];
+		$this->subtitle = $options['subtitle'];
+		$this->theme = $options['theme'];
 		
+	}
+
+	public function page_load() {
+		global $db;
+		
+		$tpl = file_get_contents("design/theme/{$this->theme}/index.tpl");
+		
+		$tpl = preg_replace("/\{\\\$title\}/", $this->title, $tpl);
+		$tpl = preg_replace("/\{\\\$subtitle\}/", $this->subtitle, $tpl);
+		$tpl = preg_replace("/\{\\\$email\}/", $this->email, $tpl);
+		$tpl = preg_replace("/\{\\\$phone\}/", $this->phone, $tpl);
+		$tpl = preg_replace("/\{\\\$website\}/", $this->website, $tpl);
+		
+		return $tpl;
 	}
 	
 }
