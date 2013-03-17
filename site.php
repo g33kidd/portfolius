@@ -1,6 +1,11 @@
-<?php 
+<?php
 include_once('system/init.php');
-$site->initialize(1);
+if(!$_GET['id']){
+	die;
+}
+
+$site->initialize(2);
+
 ?>
 <!doctype html>
 <html lang="en">

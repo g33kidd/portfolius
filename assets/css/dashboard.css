@@ -1,4 +1,7 @@
-.topbar {
-	min-height:100px;
-	background-color:rgba(0,0,0,0.3);
-}
+.topbar { background-color:rgba(0,0,0,0.3); }
+.topbar .sitename { padding:15px 0px; font-size:30px; font-family:Arial, Helvetica, sans-serif; }
+.topbar .nav { padding:5px 0px; }
+.topbar .nav ul { list-style:none; padding-top:10px; margin:0; }
+.topbar .nav ul>li:first-of-type { margin-left:0; }
+.topbar .nav ul>li { float:left; margin-left:10px; }
+.topbar .nav ul>li>a { font-size:20px; text-decoration:none; padding:10px 10px; display:inline-block; background-color:rgba(0,0,0,0.2); color:#222; }

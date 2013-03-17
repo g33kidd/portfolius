@@ -13,8 +13,8 @@
 		
 		<div class="topbar">
 			<div class="container">
-				<div class="sitename">Portfolius Dashboard</div>
-				<div class="nav">
+				<div class="sitename left">Portfolius Dashboard</div>
+				<div class="nav right">
 					<ul>
 						<li><a href="#">Home</a></li>
 						<li><a href="#">Theme</a></li>
@@ -22,18 +22,19 @@
 						<li><a href="#">Social</a></li>
 					</ul>
 				</div>
+				<div class="clear"></div>
 			</div>
 		</div>
 		
 		<div class="content">
 			<div class="container">
-				<? echo $user->site_count('1'); ?>
+				<? echo $user->site_count('2'); ?>
 				
 				<?php
-				if($user->site_count('1')==1){
+				if($user->site_count('2')==1){
 					echo "Site is already created!";
 				}else{
-					$config = array('owner'=>1,'title'=>'Joshua Kidd','subtitle'=>'just another web developer','theme'=>'metro');
+					$config = array('owner'=>2,'title'=>'GoGenko','subtitle'=>'do a barrel roll!','theme'=>'default');
 					$create_site = $site->create($config);
 					if($create_site){
 						echo "Site has been created just now!";
@@ -41,8 +42,6 @@
 						echo "ERROR";
 					}
 				}
-				
-				
 				?>
 			</div>
 		</div>

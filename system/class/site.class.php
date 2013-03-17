@@ -9,6 +9,7 @@ Class site {
 	public $phone;
 	public $website;
 	public $theme;
+	public $custom;
 	
 	/*
 	 * @data - variables for site configuration
@@ -57,7 +58,11 @@ Class site {
 		
 		$this->title = $options['title'];
 		$this->subtitle = $options['subtitle'];
+		$this->email = $options['email'];
+		$this->phone = $options['phone'];
+		$this->website = $options['website'];
 		$this->theme = $options['theme'];
+		$this->custom = $options['custom'];
 		
 	}
 
