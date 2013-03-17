@@ -1,4 +1,4 @@
-<? include_once("system/init.php"); ?>
+<?php include_once("system/init.php"); ?>
 <!doctype html>
 <html lang="en">
 	
@@ -28,7 +28,7 @@
 		
 		<div class="content">
 			<div class="container">
-				<? echo $user->site_count('2'); ?>
+				<?php echo $user->site_count('2'); ?>
 				
 				<?php
 				if($user->site_count('2')==1){

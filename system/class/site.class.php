@@ -62,7 +62,7 @@ Class site {
 		$this->phone = $options['phone'];
 		$this->website = $options['website'];
 		$this->theme = $options['theme'];
-		$this->custom = $options['custom'];
+		$this->custom = 0;
 		
 	}
 
