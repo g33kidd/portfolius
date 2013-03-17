@@ -17,6 +17,15 @@ Class user {
 		return $hash;
 	}
 	
+	public static function veriPass($password, $dbHash) {
+		$hash = crypt($password, $dbHash);
+		if($hash == $dbHash) {
+			return true;
+		}else{
+			return false;
+		}
+	}
+	
 	public static function add_user($first, $last, $email, $pass) {
 		global $db;
 		

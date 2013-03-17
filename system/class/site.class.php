@@ -38,7 +38,20 @@ Class site {
 		}
 	}
 	
-	public static function update($data) {
+	public static function update($id, $data) {
+		
+	}
+	
+	public static function delete($id) {
+		global $db;
+		if(self::exists($id)){
+			$query = $db->query("DELETE FROM sites WHERE id='{$id}'");
+			if($query){
+				return true;
+			}else{
+				return false;
+			}
+		}
 		
 	}
 	
@@ -47,6 +60,16 @@ Class site {
 		$query = $db->query("SELECT options FROM sites WHERE id='{$id}'");
 		$result = $query->fetch(PDO::FETCH_COLUMN);
 		return $result;
+	}
+	
+	public static function exists($id) {
+		global $db;
+		$query = $db->query("SELECT id,owner FROM sites WHERE id='{$id}'");
+		if($query->rowCount() < 1) {
+			return false;
+		}else{
+			return true;
+		}
 	}
 	
 	public function initialize($id) {
@@ -62,7 +85,6 @@ Class site {
 		$this->phone = $options['phone'];
 		$this->website = $options['website'];
 		$this->theme = $options['theme'];
-		$this->custom = $options['custom'];
 		
 	}
 

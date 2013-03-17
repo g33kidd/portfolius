@@ -28,13 +28,13 @@
 		
 		<div class="content">
 			<div class="container">
-				<? echo $user->site_count('2'); ?>
+				<? echo $user->site_count('1'); ?>
 				
 				<?php
-				if($user->site_count('2')==1){
-					echo "Site is already created!";
+				if($user->site_count('1')==1){
+					$delete_site = $site->delete(3);
 				}else{
-					$config = array('owner'=>2,'title'=>'GoGenko','subtitle'=>'do a barrel roll!','theme'=>'default');
+					$config = array('owner'=>1,'title'=>'GoGenko','subtitle'=>'do a barrel roll!','theme'=>'default');
 					$create_site = $site->create($config);
 					if($create_site){
 						echo "Site has been created just now!";
