@@ -2,9 +2,9 @@
 
 Class site {
 	
-	public $title;
-	public $subtitle;
-	public $theme;
+	protected $title;
+	protected $subtitle;
+	protected $theme;
 	
 	/*
 	 * @data - variables for site configuration
