@@ -15,13 +15,8 @@ $site->initialize($id);
 	
 	<head>
 		<meta charset="UTF-8" />
-<<<<<<< HEAD
 		<title><? echo $site->title; ?> &mdash; <? echo $site->subtitle; ?></title>
 		<link rel="stylesheet" href="design/theme/<? echo $site->theme . "TEST"; ?>/style.css" type="text/css" media="screen" title="no title" charset="utf-8"/>
-=======
-		<title>Portfolius Dashboard &mdash; create cool personal portfolio sites easy.</title>
-		<link rel="stylesheet" href="design/theme/<?php echo $site->theme . "TEST"; ?>/style.css" type="text/css" media="screen" title="no title" charset="utf-8"/>
->>>>>>> refs/heads/unbreaks
 	</head>
 	
 	<body>

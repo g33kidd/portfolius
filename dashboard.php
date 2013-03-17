@@ -28,11 +28,7 @@
 		
 		<div class="content">
 			<div class="container">
-<<<<<<< HEAD
 				<? echo $user->site_count('1'); ?>
-=======
-				<?php echo $user->site_count('2'); ?>
->>>>>>> refs/heads/unbreaks
 				
 				<?php
 				if($user->site_count('1')==1){
