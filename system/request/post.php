@@ -35,7 +35,7 @@ switch($_POST['request']) {
 		
 	break;
 	case 'login':
-		$user->validate($_POST['lemail'], $_POST['lpassword']);
+		
 	break;
 	case 'site_count':
 		echo "Coming Soon!";
@@ -49,19 +49,21 @@ switch($_POST['request']) {
 			$response['type'] = "site_already_created";
 		}else{
 			$owner = $_POST['uid'];
-			$owner = 1;
+			$owner_info = $db->query("SELECT email FROM users WHERE id='{$owner}'");
+			$owner_info = $db->fetch(PDO::FETCH_COLUMN);
 			$data = array(
 				'theme' => 'default',
 				'data' => array(
-					'title' => 'Joshua Kidd',
-					'subtitle' => 'Do a Barrel Roll!',
-					'email' => 'kidd.josh.343@gmail.com',
-					'phone' => '(620) 271-2795',
+					'title' => 'My Site',
+					'subtitle' => 'This is just a little information about me.',
+					'email' => $owner_info['email'],
+					'phone' => '',
 					'website' => array('www.joshuak.me','www.universalbloggers.com')
 				)
 			);
 			
 			$data = json_encode($data);
+			
 			$create = $site->create($owner, $data);
 			if($create){
 				$response['status'] = "success";

@@ -86,25 +86,45 @@ Class user {
 	  }
 	  return true;
 	}
-	private function validate($email, $pw, $remember)
-        {
-            $pw = md5($pw);
-            $db->query("SELECT * FROM `users` WHERE `email` = '".$email."' AND `password` = '".self::genHash($pw)."' LIMIT 1");
+
+	public static function remember_cookie($email, $pass) {
+		
+	}
+
+	public static function exists($email) {
+		global $db;
+		$query = $db->query("SELECT id,email FROM users WHERE email='{$email}'");
+		if($query->rowCount() >= 1) {
+			return true;
+		}else{
+			return false;
+		}
+	}
+
+	public function validate($email, $pw, $remember){
+		global $db;
+            $query = $db->query("SELECT * FROM `users` WHERE `email` = '".$email."' LIMIT 1");
             if($query->rowCount())
             {
                 $result = $query->fetch(PDO::FETCH_COLUMN);
-				$fullname = explode(' ', $result);
-                $_SESSION['loggedin']   = true;
-                $_SESSION['firstName']  = $fullname[0];
-                $_SESSION['lastName']   = $fullname[1];
-                $_SESSION['email']      = $result['email'];
-                if($remember)
-                {
-                    setcookie("port_username", $email, time() + 60 * 60 * 24 * 365, "/");
-                    setcookie("port_password", self::genHash($pw), time() + 60 * 60 * 24 * 365, "/");
-                }
+				$verifyPass = self::veriPass($pw, $result['password']);
+				if($verifyPass){
+					$_SESSION['loggedin']   = true;
+	                $_SESSION['fullname']  = $result['fullname'];
+	                $_SESSION['email']      = $result['email'];
+					return true;
+	                if($remember)
+	                {
+	                    setcookie("port_username", $email, time() + 60 * 60 * 24 * 365, "/");
+	                    setcookie("port_password", self::genHash($pw), time() + 60 * 60 * 24 * 365, "/");
+	                }
+					
+				}else{
+					return false;
+				}
             }
             else
+				return false;
                 die("error");
         }
 }

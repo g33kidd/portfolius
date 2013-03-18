@@ -4,11 +4,7 @@ Class site {
 	
 	// Site variables
 	public $id;
-	public $title;
-	public $subtitle;
-	public $email;
-	public $phone;
-	public $website;
+	public $data = array();
 	public $theme;
 	public $custom;
 	
@@ -116,7 +112,7 @@ Class site {
 		
 	}
 	
-	public function customdata($piece_of_pie) {
+	public function customdata($name) {
 		
 	}
 	
@@ -128,6 +124,7 @@ Class site {
 		$options = json_decode($options, true);
 		
 		$this->id = $id;
+		$this->data = $options['data'];
 		$this->theme = $options['theme'];
 		
 		//$this->custom = $options['custom'];
@@ -136,14 +133,26 @@ Class site {
 	public function page_load() {
 		global $db;
 		
+		$data = $this->data;
 		$tpl = file_get_contents("design/theme/{$this->theme}/index.tpl");
 		
-		// Change to loop through and create these *dynamicly
-		$tpl = preg_replace("/\{\\\$title\}/", $this->title, $tpl);
-		$tpl = preg_replace("/\{\\\$subtitle\}/", $this->subtitle, $tpl);
-		$tpl = preg_replace("/\{\\\$email\}/", $this->email, $tpl);
-		$tpl = preg_replace("/\{\\\$phone\}/", $this->phone, $tpl);
-		$tpl = preg_replace("/\{\\\$website\}/", $this->website, $tpl);
+		foreach($this->data as $key=>$value) {
+			if(is_array($value)){
+				foreach($value as $ky=>$va){
+					$tpl = preg_replace("{\${$ky}}", $va, $tpl);
+				}
+			}else{
+				$tpl = preg_replace("{\${$key}}", $value, $tpl);
+			}
+		}
+		
+		/* Change to loop through and create these *dynamicly
+		$tpl = preg_replace("/\{\\\$title\}/", $this->data['title'], $tpl);
+		$tpl = preg_replace("/\{\\\$subtitle\}/", $this->data['subtitle'], $tpl);
+		$tpl = preg_replace("/\{\\\$email\}/", $this->data['email'], $tpl);
+		$tpl = preg_replace("/\{\\\$phone\}/", $this->data['phone'], $tpl);
+		$tpl = preg_replace("/\{\\\$website\}/", $this->data['website'], $tpl);
+		*/
 		
 		return $tpl;
 	}

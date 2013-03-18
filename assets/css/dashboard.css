@@ -20,6 +20,14 @@
 .sidebar .item .padding { padding:5px 10px; }
 /* End of Dashboard Sidebar */
 
+/* Main Content */
+.page {
+	margin-left:205px;
+	margin-top:60px;
+	padding-top:20px;
+	padding-left:20px;
+}
+
 /* Colors :) */
 .bluebird { background-color:rgba(109,140,200,1); }
 .teal { background-color:rgba(118,214,185,1); }

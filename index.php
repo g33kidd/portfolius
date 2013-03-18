@@ -22,9 +22,15 @@
 						<input type="email" name="email" placeholder="Email Address" class="email"/>
 						<input type="password" name="password" placeholder="Password" class="password"/>
 						<div class="clear"></div>
-						<input type="submit" name="submit-login" value="Register" id="submit-login"/>
+						<input type="submit" name="submit-register" value="Register" id="submit-register"/>
 						<input type="hidden" name="request" value="register" id="request"/>
 						
+					</form>
+					<form action="" method="post" id="login">
+						<input type="text" name="email" placeholder="Email Address" class="email"/>
+						<input type="password" name="password" placeholder="Password" class="password"/>
+						<input type="submit" name="submit-login" value="Login" id="submit-login"/>
+						<input type="hidden" name="request" value="login" id="request"/>
 					</form>
 				</div>
 				<div class="links">

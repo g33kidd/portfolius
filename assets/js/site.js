@@ -24,7 +24,7 @@ $(document).ready(function() {
 		event.preventDefault();
 		var data = $(this).serializeArray();
 		$.post('system/request/post.php', data, function(response) {
-			response = jQuery.parseJSON(response);
+			//response = jQuery.parseJSON(response);
 			console.log(response);
 			if (response.status == 'success'){
 				switch(response.trigger) {

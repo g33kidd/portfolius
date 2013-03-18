@@ -36,8 +36,10 @@
 		</div>
 		
 		<div class="container">
-			<div id="content">
-				
+			<div class="page">
+				<div id="content">
+					<input type="button" class="button" onclick="alert('THIS WORKS!');" value="HEY THERE! CREATE A WEBSITE" />
+				</div>
 			</div>
 		</div>
 		
