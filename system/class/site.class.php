@@ -3,6 +3,7 @@
 Class site {
 	
 	// Site variables
+	public $id;
 	public $title;
 	public $subtitle;
 	public $email;
@@ -19,26 +20,40 @@ Class site {
 	 * premium(boolean)
 	 * violation(boolean)
 	 */
-	public static function create($data) {
+	public static function create($owner, $data) {
 		global $db;
 		
-		$site_config = array(
-			'title' => $data['title'],
-			'subtitle' => $data['subtitle'],
-			'theme' => $data['theme']
-		);
-		$site_config = json_encode($site_config);
-		
 		try {
-			$query = $db->query("INSERT INTO sites VALUES ('', '{$data['owner']}', '{$site_config}', '0', '0', '0')");
+			$query = $db->query("INSERT INTO sites VALUES ('', '{$owner}', '{$data}', '0', '0', '0')");
 			return true;
 		}catch(PDOException $e) {
 			throw new PDOException("Could not create site: reason[ {$e} ]");
 			return false;
 		}
+		
 	}
 	
 	public static function update($id, $data) {
+		global $db;
+		
+		$base = $db->query("SELECT options FROM sites WHERE id='{$id}'");
+		if($base) {
+			$base = $base->fetch(PDO::FETCH_COLUMN);
+			$base = json_decode($base, true);
+			$data = json_decode($data, true);
+			
+			$final_changes = array_replace($base, $data);
+			$final = json_encode($final_changes);
+			
+			$update = $db->query("UPDATE sites SET options='{$final}' WHERE id='{$id}'");
+			if($update) {
+				return true;
+			}else{
+				return false;
+			}
+		}else{
+			return false;
+		}
 		
 	}
 	
@@ -55,13 +70,6 @@ Class site {
 		
 	}
 	
-	public static function options($id) {
-		global $db;
-		$query = $db->query("SELECT options FROM sites WHERE id='{$id}'");
-		$result = $query->fetch(PDO::FETCH_COLUMN);
-		return $result;
-	}
-	
 	public static function exists($id) {
 		global $db;
 		$query = $db->query("SELECT id,owner FROM sites WHERE id='{$id}'");
@@ -72,6 +80,44 @@ Class site {
 		}
 	}
 	
+	public static function options($id) {
+		global $db;
+		$query = $db->query("SELECT options FROM sites WHERE id='{$id}'");
+		$result = $query->fetch(PDO::FETCH_COLUMN);
+		return $result;
+	}
+	
+	// Sorry if this is confusing.... had a bit of fun :)
+	// Please edit if you know how to make it more sense with pie :)
+	// Only this will be based off of pie, nothing e;se :)
+	public function sitedata($piece_of_pie) {
+		$options = self::options($this->id);
+		$options = json_decode($options, true);
+		foreach($options as $option->$pie){
+			if($option == $piece_of_pie) {
+				echo $pie;
+			}
+			if(is_array($val)){
+				foreach($val as $piecrust->$filling){
+					if($piecrust == $piece_of_pie) {
+						echo $filling;
+					}
+					if(is_array($filling)){
+						foreach($filling as $ingredient->$yummy) {
+							if($ingredient == $piece_of_pie){
+								echo $yummy;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	public function customdata($piece_of_pie) {
+		
+	}
+	
 	public function initialize($id) {
 		
 		global $db;
@@ -79,15 +125,12 @@ Class site {
 		$options = self::options($id);
 		$options = json_decode($options, true);
 		
-		$this->title = $options['title'];
-		$this->subtitle = $options['subtitle'];
-		$this->email = $options['email'];
-		$this->phone = $options['phone'];
-		$this->website = $options['website'];
+		$this->id = $id;
+		
+		
 		$this->theme = $options['theme'];
 		
 		//$this->custom = $options['custom'];
-		
 	}
 
 	public function page_load() {
@@ -95,6 +138,7 @@ Class site {
 		
 		$tpl = file_get_contents("design/theme/{$this->theme}/index.tpl");
 		
+		// Change to loop through and create these *dynamicly
 		$tpl = preg_replace("/\{\\\$title\}/", $this->title, $tpl);
 		$tpl = preg_replace("/\{\\\$subtitle\}/", $this->subtitle, $tpl);
 		$tpl = preg_replace("/\{\\\$email\}/", $this->email, $tpl);
@@ -105,5 +149,6 @@ Class site {
 	}
 	
 }
+
 
 ?>

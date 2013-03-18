@@ -93,9 +93,10 @@ Class user {
             if($query->rowCount())
             {
                 $result = $query->fetch(PDO::FETCH_COLUMN);
+				$fullname = explode(' ', $result);
                 $_SESSION['loggedin']   = true;
-                $_SESSION['firstName']  = $result['firstname'];
-                $_SESSION['lastName']   = $result['lastname'];
+                $_SESSION['firstName']  = $fullname[0];
+                $_SESSION['lastName']   = $fullname[1];
                 $_SESSION['email']      = $result['email'];
                 if($remember)
                 {

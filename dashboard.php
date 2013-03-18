@@ -28,23 +28,30 @@
 		
 		<div class="content">
 			<div class="container">
-				<? echo $user->site_count('1'); ?>
-				
-				<?php
-				if($user->site_count('1')==1){
-					$delete_site = $site->delete(3);
-				}else{
-					$config = array('owner'=>1,'title'=>'GoGenko','subtitle'=>'do a barrel roll!','theme'=>'default');
-					$create_site = $site->create($config);
-					if($create_site){
-						echo "Site has been created just now!";
-					}else{
-						echo "ERROR";
-					}
-				}
-				?>
+				<div id="content">
+					<?php
+					
+					$site_options = array(
+						'theme' => 'metro',
+						'data' => array(
+							'title' => 'Joshua Kidd',
+							'subtitle' => 'Do a Barrel Roll!',
+							'email' => 'kidd.josh.343@gmail.com',
+							'phone' => '(620) 271-2795',
+							'website' => array('www.joshuak.me','www.universalbloggers.com'),
+						)
+					);
+					$options = json_encode($site_options);
+					
+					$site->update(5, $options);
+					
+					?>
+				</div>
 			</div>
 		</div>
+		
+		<script src="//code.jquery.com/jquery-latest.js"></script>
+		<script src="assets/js/dashboard.js"></script>
 		
 	</body>
 	

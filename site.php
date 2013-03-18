@@ -15,7 +15,7 @@ $site->initialize($id);
 	
 	<head>
 		<meta charset="UTF-8" />
-		<title><? echo $site->title; ?> &mdash; <? echo $site->subtitle; ?></title>
+		<title><? $site->sitedata('title'); ?> &mdash; <? $site->sitedata('subtitle'); ?></title>
 		<link rel="stylesheet" href="design/theme/<? echo $site->theme . "TEST"; ?>/style.css" type="text/css" media="screen" title="no title" charset="utf-8"/>
 	</head>
 	
@@ -23,4 +23,4 @@ $site->initialize($id);
 		<?php echo $site->page_load(); ?>
 	</body>
 	
-</html>
+</html>
