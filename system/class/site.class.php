@@ -90,28 +90,30 @@ Class site {
 	// Sorry if this is confusing.... had a bit of fun :)
 	// Please edit if you know how to make it more sense with pie :)
 	// Only this will be based off of pie, nothing e;se :)
-	public function sitedata($piece_of_pie) {
+	public function sitedata($name) {
 		$options = self::options($this->id);
 		$options = json_decode($options, true);
-		foreach($options as $option->$pie){
-			if($option == $piece_of_pie) {
-				echo $pie;
-			}
-			if(is_array($val)){
-				foreach($val as $piecrust->$filling){
-					if($piecrust == $piece_of_pie) {
-						echo $filling;
-					}
-					if(is_array($filling)){
-						foreach($filling as $ingredient->$yummy) {
-							if($ingredient == $piece_of_pie){
-								echo $yummy;
-							}
+		
+		foreach($options as $value=>$data) {
+			if(is_array($data)){
+				foreach($data as $val=>$dat) {
+					if(is_array($dat)){
+						foreach($dat as $v=>$d){
+							
+						}
+					}else{
+						if($name == $val){
+							echo $dat;
 						}
 					}
 				}
+			}else{
+				if($name == $value){
+					echo $data;
+				}
 			}
 		}
+		
 	}
 	
 	public function customdata($piece_of_pie) {
@@ -126,8 +128,6 @@ Class site {
 		$options = json_decode($options, true);
 		
 		$this->id = $id;
-		
-		
 		$this->theme = $options['theme'];
 		
 		//$this->custom = $options['custom'];

@@ -16,16 +16,32 @@
 				<div class="sitepurpose">easy portfolio creation</div>
 				<div class="signup" id="signup">
 					<form action="" method="post" id="register">
+						
 						<input type="text" name="firstname" placeholder="First Name" class="firstname"/>
 						<input type="text" name="lastname" placeholder="Last Name" class="lastname"/>
 						<input type="email" name="email" placeholder="Email Address" class="email"/>
 						<input type="password" name="password" placeholder="Password" class="password"/>
-						<hr>
-						<input type="submit" name="submit-login" value="Register" id="submit-login" class="left"/>
+						<div class="clear"></div>
+						<input type="submit" name="submit-login" value="Register" id="submit-login"/>
 						<input type="hidden" name="request" value="register" id="request"/>
-						<p class="right">Already registered? <a href="page.php" id="login">Login Now</a></p>
+						
 					</form>
 				</div>
+				<div class="links">
+					
+					<div class="outter">
+						<a id="feature-scroll">Features</a>
+					</div>
+					
+				</div>
+				
+			</div>
+		</div>
+		<div class="features">
+			<a name="features"/>
+			<div class="container">
+				
+				content
 				
 			</div>
 		</div>

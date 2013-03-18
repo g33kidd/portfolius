@@ -1,8 +1,28 @@
-.topbar { background-color:rgba(0,0,0,0.3); }
-.topbar .sitename { padding:15px 0px; font-size:30px; font-family:Arial, Helvetica, sans-serif; }
-.topbar .nav { padding:5px 0px; }
-.topbar .nav ul { list-style:none; padding-top:10px; margin:0; }
-.topbar .nav ul>li:first-of-type { margin-left:0; }
-.topbar .nav ul>li { float:left; margin-left:10px; }
-.topbar .nav ul>li>a { font-size:20px; text-decoration:none; padding:10px 10px; display:inline-block; background-color:rgba(0,0,0,0.2); color:#222; }
+/* Header of Dashboard */
+.topbar { background-color:rgba(160,194,222,0.4); position:fixed; right:0; top:0; left:0; z-index:1000;
+	box-shadow: 0px 0px 21px -5px #26292E;
+	-webkit-box-shadow: 0px 0px 21px -5px #26292E;
+	-moz-box-shadow: 0px 0px 21px -5px #26292E;
+	-o-box-shadow: 0px 0px 21px -5px #26292E;
+}
 
+.sitename { font-size:35px; padding:10px 40px; background-color:rgba(84,168,250,0.4); font-family:'Economica', sans-serif; font-weight:700; }
+
+.user { position:relative; background-color:rgba(84,168,250,0.4); overflow:hidden; }
+.user .image { padding:0; height:60px; }
+.user .info { margin-top:30px; padding:0px 20px; font-family:Arial, Helvetica, sans-serif }
+.user .info .welcome { font-size:20px; }
+/* End of Dashboard Header */
+
+/* Sidebar of Dashboard */
+.sidebar { position:fixed; top:60px; bottom:0; background-color:#000; display:inline-block; width:202px; font-family:Arial, Helvetica, sans-serif; z-index:2000; }
+.sidebar .item { height:60px; font-size:20px; line-height:65px; border:0px solid #000; }
+.sidebar .item .padding { padding:5px 10px; }
+/* End of Dashboard Sidebar */
+
+/* Colors :) */
+.bluebird { background-color:rgba(109,140,200,1); }
+.teal { background-color:rgba(118,214,185,1); }
+.aster { background-color:rgba(186,168,178,1); }
+.cayenne { background-color:rgba(180,102,84,1); }
+.help { background-color:rgba(206,81,52,1); }

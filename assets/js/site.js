@@ -9,7 +9,7 @@ $(document).ready(function() {
 			if (response.status == 'success'){
 				switch(response.trigger) {
 					case '0':
-						$('#msg').fadeOut('slow', function() {
+						$('#signup').fadeOut('slow', function() {
 							$(this).html('<div class="complete"> Account Successfully Created! </div> <a href="dashboard.php" class="btn">Go to Dashboard.</button>')
 						}).fadeIn('fast');
 						break;
@@ -29,7 +29,7 @@ $(document).ready(function() {
 			if (response.status == 'success'){
 				switch(response.trigger) {
 					case '0':
-						$('#msg').fadeOut('slow', function() {
+						$('#signup').fadeOut('slow', function() {
 							$(this).html('<div class="complete"> Logged in, transfering! </div> <a href="dashboard.php" class="btn">Go to Dashboard.</button>')
 						}).fadeIn('fast');
 						break;
@@ -51,5 +51,15 @@ $(document).ready(function() {
     function redirectPage() {
         window.location = linkLocation;
     }
+    
+    function scrollToAnchor(aid){
+	    var aTag = $("a[name='"+ aid +"']");
+	    $('html,body').animate({scrollTop: aTag.offset().top},'slow');
+	}
+	
+	$("#feature-scroll").click(function() {
+	   scrollToAnchor('features');
+	});
+
 	
 });

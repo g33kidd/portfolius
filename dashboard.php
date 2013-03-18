@@ -13,40 +13,31 @@
 		
 		<div class="topbar">
 			<div class="container">
-				<div class="sitename left">Portfolius Dashboard</div>
+				<div class="sitename left">Dashboard</div>
 				<div class="nav right">
-					<ul>
-						<li><a href="#">Home</a></li>
-						<li><a href="#">Theme</a></li>
-						<li><a href="#">Settings</a></li>
-						<li><a href="#">Social</a></li>
-					</ul>
+					<div class="user">
+						<div class="image left"><img src="http://placehold.it/60x60&text=profile" /></div>
+						<div class="info left"><span>Welcome, Joshua!</span> <a href="#" id="logout" class="logout">Logout</a></div>
+						<div class="clear"></div>
+					</div>
 				</div>
 				<div class="clear"></div>
 			</div>
 		</div>
 		
-		<div class="content">
-			<div class="container">
-				<div id="content">
-					<?php
-					
-					$site_options = array(
-						'theme' => 'metro',
-						'data' => array(
-							'title' => 'Joshua Kidd',
-							'subtitle' => 'Do a Barrel Roll!',
-							'email' => 'kidd.josh.343@gmail.com',
-							'phone' => '(620) 271-2795',
-							'website' => array('www.joshuak.me','www.universalbloggers.com'),
-						)
-					);
-					$options = json_encode($site_options);
-					
-					$site->update(5, $options);
-					
-					?>
-				</div>
+		<div class="container">
+			<div class="sidebar">
+				<div class="item bluebird">Sites</div>
+				<div class="item teal">Options</div>
+				<div class="item aster">Templates</div>
+				<div class="item cayenne">Account</div>
+				<div class="item help">Help</div>
+			</div>
+		</div>
+		
+		<div class="container">
+			<div id="content">
+				
 			</div>
 		</div>
 		
