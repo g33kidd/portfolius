@@ -6,6 +6,5 @@
 	<h2>Contact Information:</h2>
 	<h3><strong>Email Address</strong>: {$email}</h3>
 	<h3><strong>Phone Number</strong>: {$phone}</h3>
-	<h3><strong>My Website</strong>: {$website}</h3>
 	
 </div>

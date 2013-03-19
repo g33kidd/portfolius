@@ -136,28 +136,24 @@ Class site {
 		$data = $this->data;
 		$tpl = file_get_contents("design/theme/{$this->theme}/index.tpl");
 		
-		foreach($this->data as $key=>$value) {
-			if(is_array($value)){
-				foreach($value as $ky=>$va){
-					$tpl = preg_replace("{\${$ky}}", $va, $tpl);
+		
+		if(is_array($this->data)){
+			foreach($this->data as $key=>$value) {
+				if(is_array($value)){
+					foreach($value as $ky=>$va){
+						$replace = "/\{\\\$".$ky."\}/";
+						$tpl = preg_replace($replace, $va, $tpl);
+					}
+				}else{
+					$replace = "/\{\\\$".$key."\}/";
+					$tpl = preg_replace($replace, $value, $tpl);
 				}
-			}else{
-				$tpl = preg_replace("{\${$key}}", $value, $tpl);
 			}
 		}
-		
-		/* Change to loop through and create these *dynamicly
-		$tpl = preg_replace("/\{\\\$title\}/", $this->data['title'], $tpl);
-		$tpl = preg_replace("/\{\\\$subtitle\}/", $this->data['subtitle'], $tpl);
-		$tpl = preg_replace("/\{\\\$email\}/", $this->data['email'], $tpl);
-		$tpl = preg_replace("/\{\\\$phone\}/", $this->data['phone'], $tpl);
-		$tpl = preg_replace("/\{\\\$website\}/", $this->data['website'], $tpl);
-		*/
 		
 		return $tpl;
 	}
 	
 }
-
 
 ?>
