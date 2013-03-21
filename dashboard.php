@@ -1,4 +1,8 @@
-<?php include_once("system/init.php"); ?>
+<?php 
+
+include_once("system/init.php"); 
+$sites = $user->site_count(1);
+?>
 <!doctype html>
 <html lang="en">
 	
@@ -12,34 +16,25 @@
 	<body>
 		
 		<div class="topbar">
-			<div class="container">
-				<div class="sitename left">Dashboard</div>
-				<div class="nav right">
-					<div class="user">
-						<div class="image left"><img src="http://placehold.it/60x60&text=profile" /></div>
-						<div class="info left"><span>Welcome, Joshua!</span> <a href="#" id="logout" class="logout">Logout</a></div>
-						<div class="clear"></div>
-					</div>
+			<div class="padding">
+				<div class="container">
+					<img src="assets/images/icons/file.svg" class="logo left" width="25px" height="25px">
+					<div class="title left">Portfolius</div>
 				</div>
 				<div class="clear"></div>
 			</div>
 		</div>
+		<div class="topbar-space"></div>
 		
 		<div class="container">
-			<div class="sidebar">
-				<div class="item bluebird">Sites</div>
-				<div class="item teal">Options</div>
-				<div class="item aster">Templates</div>
-				<div class="item cayenne">Account</div>
-				<div class="item help">Help</div>
-			</div>
-		</div>
-		
-		<div class="container">
-			<div class="page">
-				<div id="content">
-					<input type="button" class="button" onclick="create_site(1);" value="HEY THERE! CREATE A WEBSITE" />
-				</div>
+			<div class="dashMain">
+				
+				<? if($sites < 1) : ?>
+					YOU HAVE NO WEBSITE!
+				<? else : ?>
+					<? include('design/theme/{$this->theme}/index.tpl'); ?>
+				<? endif; ?>
+				
 			</div>
 		</div>
 		

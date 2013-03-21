@@ -183,9 +183,8 @@ Class site {
 				}
 			}
 		}
-		
-		$replace = "/\{\\\$theme_dir\}/";
-		$tpl = preg_replace($replace, "design/theme/{$this->theme}", $tpl);
+	
+		$tpl = preg_replace("/\{\\\$theme_dir\}/", "design/theme/{$this->theme}", $tpl);
 		
 		echo $tpl;
 	}
