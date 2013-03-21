@@ -5,6 +5,7 @@ Class site {
 	// Site variables
 	public $id;
 	public $data = array();
+	public $dep = array();
 	public $theme;
 	public $custom;
 	
@@ -83,9 +84,25 @@ Class site {
 		return $result;
 	}
 	
-	// Sorry if this is confusing.... had a bit of fun :)
-	// Please edit if you know how to make it more sense with pie :)
-	// Only this will be based off of pie, nothing e;se :)
+	public function config() {
+		
+		$config_file = "design/theme/{$this->theme}/options.php";
+		
+		if(file_exists($config_file)) {
+			$dependencies = array(
+				'assets/js/jquery.js' => 'script',
+				'assets/css/main.css' => 'stylesheet'
+			);
+			if(empty($dependencies)){ die; }else{ $this->id = $id; }
+			include $config_file;
+			
+			return true;
+		}else{
+			return false;
+		}
+		
+	}
+	
 	public function sitedata($name) {
 		$options = self::options($this->id);
 		$options = json_decode($options, true);
@@ -95,7 +112,7 @@ Class site {
 				foreach($data as $val=>$dat) {
 					if(is_array($dat)){
 						foreach($dat as $v=>$d){
-							
+							echo $d;
 						}
 					}else{
 						if($name == $val){
@@ -125,24 +142,40 @@ Class site {
 		
 		$this->id = $id;
 		$this->data = $options['data'];
+		$this->custom = $options['custom_data'];
 		$this->theme = $options['theme'];
 		
 		//$this->custom = $options['custom'];
 	}
+	
+	public function dependencies() {
+		if(empty($this->dep))
+			return false;
+		
+		foreach($dep as $file=>$type) {
+			echo $file;
+		}
+		
+	}
 
 	public function page_load() {
-		global $db;
 		
 		$data = $this->data;
 		$tpl = file_get_contents("design/theme/{$this->theme}/index.tpl");
-		
 		
 		if(is_array($this->data)){
 			foreach($this->data as $key=>$value) {
 				if(is_array($value)){
 					foreach($value as $ky=>$va){
-						$replace = "/\{\\\$".$ky."\}/";
-						$tpl = preg_replace($replace, $va, $tpl);
+						if(is_array($va)){
+							foreach($va as $k=>$v) {
+								$replace = "/\{\\\$".$k."\}/";
+								$tpl = preg_replace($replace, $v, $tpl);
+							}
+						}else{
+							$replace = "/\{\\\$".$ky."\}/";
+							$tpl = preg_replace($replace, $va, $tpl);
+						}
 					}
 				}else{
 					$replace = "/\{\\\$".$key."\}/";
@@ -151,7 +184,10 @@ Class site {
 			}
 		}
 		
-		return $tpl;
+		$replace = "/\{\\\$theme_dir\}/";
+		$tpl = preg_replace($replace, "design/theme/{$this->theme}", $tpl);
+		
+		echo $tpl;
 	}
 	
 }

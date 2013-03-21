@@ -1,0 +1,10 @@
+.container {
+	width:960px;
+	margin:0 auto;
+	font-family:Arial, Helvetica, sans-serif;
+}
+.left { float:left; }
+.right { float:right; }
+.clear { clear:both; }
+.sitetitle { font-size:35px; }
+.subtitle { font-size:18px; margin-top:30px; margin-left:20px; }

@@ -38,7 +38,7 @@
 		<div class="container">
 			<div class="page">
 				<div id="content">
-					<input type="button" class="button" onclick="alert('THIS WORKS!');" value="HEY THERE! CREATE A WEBSITE" />
+					<input type="button" class="button" onclick="create_site(1);" value="HEY THERE! CREATE A WEBSITE" />
 				</div>
 			</div>
 		</div>
