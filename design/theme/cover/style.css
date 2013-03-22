@@ -4,5 +4,16 @@
 	html, body, div, ol, ul, li, dl, dt, dd, h1, h2, h3, h4, h5, h6, pre, code, form, p, blockquote, fieldset, input, abbr, article, aside, details, figcaption, figure, footer, header, hgroup, mark, nav, section, summary, time, legend { margin: 0; padding: 0; }
 	html, body { font-size: 100%; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; margin: 0; padding: 0; }
 	article, aside, details, figcaption, figure, footer, header, hgroup, nav, section { display: block; }
+<<<<<<< HEAD
 	
 	body { font-size: 15px; font-family: "Lucida Grande", "Lucida Sans Unicode", Helvetica, Arial, Verdana, sans-serif; color: #333; padding: 0; margin: 0; background-color: #EDEDF0; padding-top: 100px; }
+=======
+	.clearfix:after { content: "."; display: block; clear: both; visibility: hidden; line-height: 0; height: 0; } .clearfix { display: inline-block; } html[xmlns] .clearfix { display: block; } * html .clearfix { height: 1%; } .clear { clear: both; }
+	hr { height: 1px; border: none; margin-top: 10px; margin-bottom: 10px; background-image: -webkit-gradient( linear, left bottom, right bottom, color-stop(0, rgba(204, 204, 204, 0.2)), color-stop(0.5, rgba(204, 204, 204, 1.0)), color-stop(1, rgba(204, 204, 204, 0.2))); }
+	
+	html { height: 100%; width: 100%; }
+	body { font-size: 15px; font-family: "Lucida Grande", "Lucida Sans Unicode", Helvetica, Arial, Verdana, sans-serif; color: #333; padding: 0; margin: 0; background: url("images/background.png"); background-repeat: repeat; }
+	
+	#header { width: 100%; height: 400px; overflow: hidden;  padding: 20px 0; border-bottom: 3px dashed red; }
+	#content { width: 845px; margin: 0 auto; position: relative;  }
+>>>>>>> origin/geekahz
