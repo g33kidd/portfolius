@@ -1,0 +1,121 @@
+/*
+ * METRO THEME
+ * ============================================================= */
+
+	html, body, div, ol, ul, li, dl, dt, dd, h1, h2, h3, h4, h5, h6, pre, code, section, form, p, blockquote, fieldset, input, abbr, article, aside, details, figcaption, figure, footer, header, hgroup, mark, nav, time, legend { margin: 0; padding: 0; } /* :note: reset margin and padding across elements, reset for stupid browsers who don't understand html5, below .. */
+	header, footer, nav, aside, article, figcaption, figure, hgroup, section { display: block; }
+	
+	html, body { font-size: 100%; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
+	
+	body { font-size: 18px; font-family: "Segoe UI Light", "Segoe UI", "Lucida Grande", Tahoma, Verdana, Geneva, Arial, Helvetica, sans-serif; color: #333333; }
+	
+	/* FONT FACE ADDITIONS */
+	@font-face { font-family: "Segoe UI Light"; src: url("font/SegoeUILight.ttf") format("truetype"); font-style: normal; font-weight: normal; }
+	@font-face { font-family: "Segoe UI"; src: url("font/SegoeUI.ttf") format("truetype"); font-style: normal; font-weight: normal; }
+
+	/* LINK STYLES */
+	a { text-decoration: none; color: #08c; }
+	a:hover, a:active { text-decoration: underline; color: #01c; }
+	a:focus { outline: thin dotted #333; outline: 5px auto -webkit-focus-ring-color; outline-offset: 02px; color: #08c; text-decoration: none; }
+	
+	/* HEADING AND TEXT ELEMENTS */
+	h1, h2, h3, h4, h5, h6 { margin: 10px 0; font-family: inherit; font-weight: bold; line-height: 40px; color: inherit; }
+	
+	h1 { font-size: 40px; }			h2 { font-size: 31px; }
+	#coverHeader h1 { color: #fff; } #coverHeader span.sub { color: #eee; }
+	h3 { font-size: 25px; }			h4 { font-size: 50px; }
+	
+	h5 { font-size: 41px; }			h6 { font-size: 35px; }
+	
+	p { margin: 0 0 10px; }			small { font-size: 85%; }		strong { font-weight: bold; }
+
+	/* CONTENT CONTAINERS */
+	#globalContainer { position: relative; *zoom: 1; margin: 0 auto; width: 100%; }
+
+/* 
+ * GLOBAL USE OF HACK STYLES */
+
+.mts { margin-top: 5px; } .mtsm { margin-top: 10px; } .mtm { margin-top: 15px; } .mtml { margin-top: 20px; } .mtl { margin-top: 25px; } .mtlxl { margin-top: 30px; } .mtxl { margin-top: 40px; } .mtxxl { margin-top: 60px; } .mt100 { margin-top: 100px; } .mt200 { margin-top: 200px; } .mt300 { margin-top: 300px; } .mt400 { margin-top: 400px; }
+.mls { margin-left: 5px; } .mlsm { margin-left: 10px; } .mlm { margin-left: 15px; } .mlml { margin-left: 20px; } .mll { margin-left: 25px; } .mllxl { margin-left: 30px; } .mlxl { margin-left: 40px; } .mlxxl { margin-left: 60px; } .ml100 { margin-left: 100px; } .ml200 { margin-left: 200px; } .ml300 { margin-left: 300px; } .ml400 { margin-left: 400px; }
+.mrs { margin-right: 5px; } .mrsm { margin-right: 10px; } .mrm { margin-right: 15px; } .mrmr { margin-right: 20px; } .mrl { margin-right: 25px; } .mrlxl { margin-right: 30px; } .mrxl { margin-right: 40px; } .mrxxl { margin-right: 60px; } .mr100 { margin-right: 100px; } .mr200 { margin-right: 200px; } .mr300 { margin-right: 300px; } .mr400 { margin-right: 400px; }
+.mbs { margin-bottom: 5px; } .mbsm { margin-bottom: 10px; } .mbm { margin-bottom: 15px; } .mbmb { margin-bottom: 20px; } .mbl { margin-bottom: 25px; } .mblxl { margin-bottom: 30px; } .mbxl { margin-bottom: 40px; } .mbxxl { margin-bottom: 60px; } .mb100 { margin-bottom: 100px; } .mb200 { margin-bottom: 200px; } .mb300 { margin-bottom: 300px; } .mb400 { margin-bottom: 400px; }
+.mas { margin: 5px; } .masm { margin: 10px; } .mam { margin: 15px; } .mama { margin: 20px; } .mal { margin: 25px; } .malxl { margin: 30px; } .maxl { margin: 40px; } .maxxl { margin: 60px; } .ma100 { margin: 100px; } .ma200 { margin: 200px; } .ma300 { margin: 300px; } .ma400 { margin: 400px; }
+.pas { padding: 5px; } .pasm { padding: 10px; } .pam { padding: 15px; } .papa { padding: 20px; } .pal { padding: 25px; } .palxl { padding: 30px; } .paxl { padding: 40px; } .paxxl { padding: 60px; } .pa100 { padding: 100px; } .pa200 { padding: 200px; } .pa300 { padding: 300px; } .pa400 { padding: 400px; }
+.pls { padding-left: 5px; } .plsm { padding-left: 10px; } .plm { padding-left: 15px; } .plpl { padding-left: 20px; } .pll { padding-left: 25px; } .pllxl { padding-left: 30px; } .plxl { padding-left: 40px; } .plxxl { padding-left: 60px; } .pl100 { padding-left: 100px; } .pl200 { padding-left: 200px; } .pl300 { padding-left: 300px; } .pl400 { padding-left: 400px; }
+.prs { padding-right: 5px; } .prsm { padding-right: 10px; } .prm { padding-right: 15px; } .prpr { padding-right: 20px; } .prl { padding-right: 25px; } .prlxl { padding-right: 30px; } .prxl { padding-right: 40px; } .prxxl { padding-right: 60px; } .pr100 { padding-right: 100px; } .pr200 { padding-right: 200px; } .pr300 { padding-right: 300px; } .pr400 { padding-right: 400px; }
+.pts { padding-top: 5px; } .ptsm { padding-top: 10px; } .ptm { padding-top: 15px; } .ptpt { padding-top: 20px; } .ptl { padding-top: 25px; } .ptlxl { padding-top: 30px; } .ptxl { padding-top: 40px; } .ptxxl { padding-top: 60px; } .pt100 { padding-top: 100px; } .pt200 { padding-top: 200px; } .pt300 { padding-top: 300px; } .pt400 { padding-top: 400px; }
+.pbs { padding-bottom: 5px; } .pbsm { padding-bottom: 10px; } .pbm { padding-bottom: 15px; } .pbpb { padding-bottom: 20px; } .pbl { padding-bottom: 25px; } .pblxl { padding-bottom: 30px; } .pbxl { padding-bottom: 40px; } .pbxxl { padding-bottom: 60px; } .pb100 { padding-bottom: 100px; } .pb200 { padding-bottom: 200px; } .pb300 { padding-bottom: 300px; } .pb400 { padding-bottom: 400px; }
+.fss { font-size: 13px; } .fsm { font-size: 16px; } .fsl { font-size: 20px; } .fsxl { font-size: 30px; } .fsxxl { font-size: 40px; } .fsxxxl { font-size: 50px; }
+._fs10 { font-size: 10px; } ._fs20 { font-size: 20px; } ._fs15 { font-size: 15px; } ._fs25 { font-size: 25px; } ._fs30 { font-size: 30px; } ._fs35 { font-size: 35px; } ._fs40 { font-size: 40px; } ._fs45 { font-size: 45px; } ._fs50 { font-size: 50px; } ._fs55 { font-size: 55px; } ._fs60 { font-size: 60px; } ._fs65 { font-size: 65ps; } ._fs70 { font-size: 70px; } ._fs75 { font-size: 75px; } ._fs80 { font-size: 80px; } ._fs85 { font-size: 85px; } ._fs90 { font-size: 90px; } ._fs95 { font-size: 95px; } ._fs100 { font-size: 100px; }
+.fcg { color: #67A54B; } .fcy { color: #C67605; } .fcw { color: #ffffff; } .fcr { color: #cc0000; } .fcb { color: #1BA1E2; } .fcdg { color: #555555; } .fclg { color: #999999; }
+.clearfix:after { content: "."; display: block; clear: both; visibility: hidden; line-height: 0; height: 0; } .clearfix { display: inline-block; } html[xmlns] .clearfix { display: block; } * html .clearfix { height: 1%; }
+.ff_sl { font-family: "Segoe UI Light", "Lucida Grande", Tahoma; } .ff_n { font-family: "Lucida Grande", "Lucida Sans Unicode", Helvetica, Arial, Verdana, sans-serif; }
+.fwl { font-weight: lighter; } .fwn { font-weight: normal; } .fwb { font-weight: bold; }
+.ff_tahoma { font-family: "Tahoma"; } .ff_gill { font-family: "Gill Sans"; }
+._mh100 { min-height: 100px !important; } .fleft { float: left; } .fright { float: right; }
+.design_line { border: 1px dashed red }
+.uiAlertBox.lightGray { background-color: #f2f2f2; border: 1px solid #ccc; }
+.uiAlertBox.lightBlue { background-color: #edeff4; border: 1px solid #d8dfea; color: black; }
+.uiAlertBox.red { background-color: #ffebe8; border: 1px solid #dd3c10; }
+.uiAlertBox.white { background-color: #fff; border: 1px solid #ccc; }
+.uiAlertBox.yellow { background-color: #fff9d7; border: 1px solid #e2c822; }
+
+/*
+ * ROW AND COLUMN SETTING */
+
+.column { display: inline-block; padding: 10px 6px; float: left; min-height: 50px; height: auto; word-break: normal; color: #2d2d2d; }
+.column.first, .column.last { margin-left: 0; }
+.column.last { float: right; } 
+
+[class*="row"]._no-padding { padding-left: 0 !important; padding-right: 0 !important; }
+[class*="row"] { width: 981px; padding: 8px 8.2px; }
+[class*="row"]:after { content: "."; display: block; height: 0; clear: both; visibility: hidden; }
+[class*="row"] { zoom: 1; }
+
+.row1column .column { width: 980px; }
+
+.row2column.c .column.first { width: 640px; margin-right: 17px; }
+.row2column.c .column.last { margin: 0; width: 290px; }
+
+/* BODY AND DOCUMENT CONTAINERS */
+body { background: #fbfbfb; }
+	
+#contentHeader { width: 981px; position: relative; margin: 0 auto; margin-top: 100px; }
+#contentHeader .sub { font-size: 18px; color: #888; padding-left: 3px; }
+#contentContainer { width: 981px; position: relative; *zoom: 1; min-height: 100px; border-bottom: 30px solid #cc0000; margin: 0 auto; border-top: 30px solid #1BA1E2; }
+#contentFooter { width: 981px; position: relative; margin: 0 auto; }
+
+#contentContainer .column { text-align: center; color: #fff; }
+
+/* SOCIAL MEDIA BLOCKS */
+.facebook, .twitter, .google { font-size: 40px; }
+.facebook { background: #3b5998; font-family:'lucida grande',tahoma,verdana,arial,sans-serif; }
+.twitter { background: #00a0d1; font-family:"Helvetica Neue",Helvetica,Arial,sans-serif; }
+.google { background: #d34836; font-family: arial,sans-serif; }
+
+/* TWITTER/FACEBOOK STATUS FEED */
+.twitter-feed, .facebook-feed, .information-block { background: #f9f9f9; padding: 0; box-shadow: 0px 3px 3px #999;}
+.twitter-feed .header, .facebook-feed .header, .information-block .header { height: 50px; color: #ffffff; padding: 10px 0; font-size: 40px; }
+.twitter-feed .statistic, .facebook-feed .statistic { height: 60px; position: relative; margin: 0 auto; display: block; border-bottom: 1px solid #999; display: none; }
+.twitter-feed .twitter-number, .facebook-feed .facebook-number { height: 55px; text-align: center; display: inline-block; *display: inline; position: relative; margin: 0 auto; padding: 3px 40px; border-right: 1px solid #999; }
+.twitter-feed .twitter-number:last-child, .facebook-feed .facebook-number:last-child { border-right: none; }
+.twitter-feed .twitter-number .type, .facebook-feed .facebook-number .type { color: #999; font-size: 11px; }
+.twitter-feed .twitter-number .data, .facebook-feed .facebook-number .data { display: block; color: #333; font-weight: bold; }
+.twitter-feed .twitter-update, .facebook-feed .facebook-update { height: auto; background: #fff; color: #555; padding: 30px 20px; text-align: left; font-weight: bold; font-size: 13px; display: none; }
+
+/* TWITTER SPEC STATUS FEED */
+.twitter-feed .header .username { font-size: 20px; opacity: 0.6; }
+.twitter-feed .header { background: #3aaae1; font-family:"Helvetica Neue",Helvetica,Arial,sans-serif; }
+.twitter-feed .twitter-number, .twitter-feed .twitter-update { font-family:"Helvetica Neue",Helvetica,Arial,sans-serif; }
+
+/* FACEBOOK SPEC STATUS FEED */
+.facebook-feed { margin-right: 40px !important; }
+.facebook-feed .header { background: #3b5998; font-family:'lucida grande',tahoma,verdana,arial,sans-serif; }
+.facebook-feed .facebook-number, .facebook-feed .facebook-update { font-family:'lucida grande',tahoma,verdana,arial,sans-serif; }
+
+/* BIO BLOCK */
+.information-block .header { background: #cc0000; line-height: 45px; }
+.information-block .content { color: #333333; display: none; font-family:"Helvetica Neue",Helvetica,Arial,sans-serif; }
+.information-block .content h1 { font-size: 20px; }
+.information-block .content p { font-size: 15px; text-align: left; padding: 2px 10px;  }
+
