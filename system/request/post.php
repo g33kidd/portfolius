@@ -35,7 +35,14 @@ switch($_POST['request']) {
 		
 	break;
 	case 'login':
-		
+		$loggingin = $user->validate($_POST['email'], $_POST['password'], 0);
+		if($loggingin) {
+			$response['status'] = "success";
+			$response['message'] = "You have been logged in successfuly";
+		}else{
+			$response['status'] = "error";
+			$response['type'] = "unknown_login_error";
+		}
 	break;
 	case 'site_count':
 		echo "Coming Soon!";
@@ -83,6 +90,14 @@ switch($_POST['request']) {
 	break;
 	case 'delete_site':
 		return false;
+	break;
+	case 'get_sessions':
+		$session = $_SESSION[$_GET['session']];
+		if(isset($session)){
+			return $session;
+		}else{
+			return $_SESSION;
+		}
 	break;
 }
 

@@ -1,5 +1,7 @@
 $(document).ready(function() {
 	
+	console.log("Like snooping around our code? You should help us build it: http://jobs.site.com");
+	
 	$('#register').submit(function(event) {
 		event.preventDefault();
 		var data = $(this).serializeArray();
