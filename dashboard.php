@@ -19,7 +19,7 @@ $sites = $user->site_count($_SESSION['id']);
 		<div class="topbar">
 			<div class="padding">
 				<div class="container">
-					<img src="assets/images/icons/partial.svg" class="logo left" width="25px" height="25px">
+					<img src="assets/images/icons/partial.svg" class="logo left" width="25px" height="25px">
 					<div class="title left">Portfolius</div>
 				</div>
 				<div class="clear"></div>
@@ -31,14 +31,8 @@ $sites = $user->site_count($_SESSION['id']);
 			<div class="dashMain">
 				<?php
 				
-				if($sites < 1) {
-					echo "YOU ARE A FUCKING NIGGER!";
-				}else{
-					
-					$dash->init(get_site_id());
-					echo $dash->themeoptions();
-					
-				}
+				$dash->init(get_site_id());
+				include("design/dashboard/customFieldsForm.php");
 				
 				?>
 			</div>
