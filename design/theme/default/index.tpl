@@ -4,7 +4,7 @@
 		
 		<div class="header">
 			<div class="sitetitle">{$title}</div>
-			<div class="tagline">{$subtitle}</div>
+			<div class="tagline">{$subtitle} - subtitle</div>
 		</div>
 		
 	</div>
