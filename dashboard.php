@@ -1,7 +1,8 @@
 <?php 
 
 include_once("system/init.php"); 
-$sites = $user->site_count(1);
+$sites = $user->site_count($_SESSION['id']);
+
 ?>
 <!doctype html>
 <html lang="en">
@@ -18,7 +19,7 @@ $sites = $user->site_count(1);
 		<div class="topbar">
 			<div class="padding">
 				<div class="container">
-					<img src="assets/images/icons/file.svg" class="logo left" width="25px" height="25px">
+					<img src="assets/images/icons/partial.svg" class="logo left" width="25px" height="25px">
 					<div class="title left">Portfolius</div>
 				</div>
 				<div class="clear"></div>
@@ -28,18 +29,21 @@ $sites = $user->site_count(1);
 		
 		<div class="container">
 			<div class="dashMain">
+				<?php
 				
-				<? if($sites < 1) : ?>
-					YOU HAVE NO WEBSITE!
-				<? else : ?>
-					<? include('design/theme/{$this->theme}/index.tpl'); ?>
-				<? endif; ?>
+				if($sites < 1) {
+					echo "YOU ARE A FUCKING NIGGER!";
+				}else{
+					echo "YOU ARE STILL A FUCKING NIGGER!";
+				}
 				
+				?>
 			</div>
 		</div>
 		
 		<script src="//code.jquery.com/jquery-latest.js"></script>
-		<script src="assets/js/dashboard.js"></script>
+		<script src="assets/js/dashboard.php"></script>
+		<script src="assets/js/site.js"></script>
 		
 	</body>
 	

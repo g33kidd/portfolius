@@ -103,15 +103,16 @@ Class user {
 
 	public function validate($email, $pw, $remember){
 		global $db;
-            $query = $db->query("SELECT * FROM `users` WHERE `email` = '".$email."' LIMIT 1");
+            $query = $db->query("SELECT id,email,password,fullname FROM users WHERE email='{$email}'");
             if($query->rowCount())
             {
-                $result = $query->fetch(PDO::FETCH_COLUMN);
+                $result = $query->fetch(PDO::FETCH_ASSOC);
 				$verifyPass = self::veriPass($pw, $result['password']);
 				if($verifyPass){
-					$_SESSION['loggedin']   = true;
+					$_SESSION['loggedin']  = true;
+					$_SESSION['id'] 	   = $result['id'];
 	                $_SESSION['fullname']  = $result['fullname'];
-	                $_SESSION['email']      = $result['email'];
+	                $_SESSION['email']     = $result['email'];
 					return true;
 	                if($remember)
 	                {
@@ -125,8 +126,7 @@ Class user {
             }
             else
 				return false;
-                die("error");
-        }
+       		}
 }
 
 ?>
