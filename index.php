@@ -18,7 +18,7 @@ if(is_user_loggedin())
 	
 	<body>
 		
-		<h1 class="landingtitle">Portfolius</h1>
+		<h1 class="landingtitle">Portfolius _</h1>
 		<div class="container">
 			<div class="section left">
 				<h1 class="title">Sign Up<span>Stay in touch</span></h1>
