@@ -1,8 +1,0 @@
-/*
- * PORTFOLIUS COVER THEME */
-
-	html, body, div, ol, ul, li, dl, dt, dd, h1, h2, h3, h4, h5, h6, pre, code, form, p, blockquote, fieldset, input, abbr, article, aside, details, figcaption, figure, footer, header, hgroup, mark, nav, section, summary, time, legend { margin: 0; padding: 0; }
-	html, body { font-size: 100%; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; margin: 0; padding: 0; }
-	article, aside, details, figcaption, figure, footer, header, hgroup, nav, section { display: block; }
-	
-	body { font-size: 15px; font-family: "Lucida Grande", "Lucida Sans Unicode", Helvetica, Arial, Verdana, sans-serif; color: #333; padding: 0; margin: 0; background-color: #ededf0; padding-top: 100px; }
