@@ -15,5 +15,26 @@ function is_user_loggedin() {
 	}
 }
 
+// Get current logged in users Single Site ID.
+function get_site_id() {
+	global $db;
+	$id_session = $_SESSION['id'];
+	$site_id = $db->query("SELECT id,owner FROM sites WHERE owner='{$id_session}'");
+	if($site_id->rowCount() < 1){
+		return false;
+	}else{
+		$site_id = $site_id->fetch(PDO::FETCH_ASSOC);
+		return $site_id['id'];
+	}
+}
+
+//prints an array with automatic <pre> tag rendering.
+function print_rr($arr) {
+	if(!empty($arr)){
+		echo "<pre>";
+		print_r($arr);
+		echo "<pre>";
+	}
+}
 
 ?>

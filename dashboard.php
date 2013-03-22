@@ -34,7 +34,10 @@ $sites = $user->site_count($_SESSION['id']);
 				if($sites < 1) {
 					echo "YOU ARE A FUCKING NIGGER!";
 				}else{
-					echo "YOU ARE STILL A FUCKING NIGGER!";
+					
+					$dash->init(get_site_id());
+					echo $dash->themeoptions();
+					
 				}
 				
 				?>

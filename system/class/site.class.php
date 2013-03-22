@@ -145,17 +145,6 @@ Class site {
 		$this->custom = $options['custom_data'];
 		$this->theme = $options['theme'];
 		
-		//$this->custom = $options['custom'];
-	}
-	
-	public function dependencies() {
-		if(empty($this->dep))
-			return false;
-		
-		foreach($dep as $file=>$type) {
-			echo $file;
-		}
-		
 	}
 
 	public function page_load() {
@@ -183,7 +172,8 @@ Class site {
 				}
 			}
 		}
-	
+		
+		$tpl = preg_replace("/\{\\\$(.*)\}/", "", $tpl);
 		$tpl = preg_replace("/\{\\\$theme_dir\}/", "design/theme/{$this->theme}", $tpl);
 		
 		echo $tpl;
