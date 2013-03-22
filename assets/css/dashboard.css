@@ -16,11 +16,11 @@ body {
     box-shadow:  0px 0px 20px 0px rgba(10, 10, 10, 1);
 }
 .topbar > .padding { padding:10px 0px; }
-.topbar-space { height:50px; }
+.topbar-space { height:50px; margin-bottom:20px; }
 .topbar .title { font-size:25px; margin-left:10px; }
 
 /* Interface Design IS HERE! :) */
-
+.dashMain { color:rgba(245,245,245,1); }
 
 /* Fancy Styles */
 .top-right-tab { position:absolute; top:0; right:0px; height:100px; width:100px; background:rgba(200,200,200,0.4); -webkit-border-radius: 1px 1px 1px 200px; border-radius: 1px 1px 1px 200px; }
