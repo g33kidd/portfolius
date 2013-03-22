@@ -45,6 +45,7 @@ if(is_user_loggedin())
 			<div class="section right">
 				Some about text will here.
 			</div>
+			
 		</div>
 		<script src="//code.jquery.com/jquery-latest.js"></script>
 		<script src="assets/js/site.js"></script>
