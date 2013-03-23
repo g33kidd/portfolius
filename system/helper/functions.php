@@ -28,6 +28,13 @@ function get_site_id() {
 	}
 }
 
+function user_site_count() {
+	global $db;
+	$id_session = $_SESSION['id'];
+	$sites = $db->query("SELECT id,owner FROM sites WHERE owner='{$id_session}'");
+	return $sites->rowCount();
+}
+
 //prints an array with automatic <pre> tag rendering.
 function print_rr($arr) {
 	if(!empty($arr)){

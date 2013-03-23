@@ -28,13 +28,8 @@ $sites = $user->site_count($_SESSION['id']);
 		<div class="topbar-space"></div>
 		
 		<div class="container">
-			<div class="dashMain">
-				<?php
-				
-				$dash->init(get_site_id());
-				include("design/dashboard/customFieldsForm.php");
-				
-				?>
+			<? $dash->init(get_site_id()); ?>
+			<div class="dashMain" id="main">
 			</div>
 		</div>
 		
