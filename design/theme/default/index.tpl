@@ -1,3 +1,4 @@
+<!-- NOT COMPLETE -->
 <!DOCTYPE html>
 <html lang="en">
  <head>
@@ -8,12 +9,11 @@
  <body>
   <div id="globalContainer">
    <div id="contentContainer">
-   	<!-- Header Container :: Users name and tagline -->
    	<header class="container">
    	 <h1>{$title}</h1><span>{$subtitle}</span>
    	</header>
    	<section class="row1column user_entry">
-   	 <div class="column" style='border: none;'>
+   	 <div class="column">
    	  <div class="container user_entry">
    	   <div class="header">Example User Information (Header)</div>
    	   <div class="holder">Content container for data entered by website user</div>
@@ -21,9 +21,10 @@
    	 </div>
    	</section>
    	<section class="row3column">
-   	 <div class="first column"></div>
-   	 <div class="column"></div>
-   	 <div class="last column"></div>
+   	 <!-- PLACEHOLDERS -->
+   	 <div class="first column"><!-- TWITTER CONTAINER --></div>
+   	 <div class="column"><!-- FACEBOOK CONTAINER --></div>
+   	 <div class="last column"><!-- GOOGLE PLUS CONTAINER--></div>
    	</section>
    </div>
   </div>
