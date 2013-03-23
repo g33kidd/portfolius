@@ -1,0 +1,22 @@
+html, body, div, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, p, blockquote, input, article, aside, footer, header, section { margin: 0; padding: 0 }
+html, body { font-size: 100%; -webkit-font-size-adjust: 100%; -ms-font-size-adjust: 100%; color: #333333; font-family: "Lucida Grande", "Gill Sans", Verdana, Geneva, Arial, Helvetica, sans-serif; font-size: 14px; background: #EDEDF0; padding-top: 13px; margin: 0 10px; }
+@font-face { font-family: "Header Font"; src: url("font/1194.ttf") format("truetype"); font-style: normal; font-weight: normal; }
+body:before { content: ""; position: fixed; top: -10px; left: 0; width: 100%; height: 10px; z-index: 100; -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.8); -moz-box-shadow: 0, 0, 10px rgba(0, 0, 0, 0.8); box-shadow: 0, 0, 10px rgba(0, 0, 0, 0.8); }
+
+/* body containers */
+#globalContainer { position: relative; *zoom: 1; margin: 0 auto; display: block; } #contentContainer { position: relative; width: 60%; background: #FBFBFB; -moz-border-radius: 4px; border-radius: 4px; padding: 20px; color: rgba(0,0,0, .8); text-shadow: 0 1px 0 #fff; line-height: 1.5; margin: 60px auto; }
+#contentContainer:before, #contentContainer:after { z-index: -1; position: absolute; content: ""; bottom: 15px; left: 10px; width: 50%; top: 80%; max-width: 300px; background: rgba(0, 0, 0, 0.7); -webkit-box-shadow: 0 15px 10px rgba(0,0,0, 0.7); -moz-box-shadow: 0 15px 10px rgba(0, 0, 0, 0.7); box-shadow: 0 15px 10px rgba(0, 0, 0, 0.7); -webkit-transform: rotate(-1.5deg); -moz-transform: rotate(-1.5deg); -o-transform: rotate(-1.5deg); -ms-transform: rotate(-1.5deg); transform: rotate(-1.5deg); }
+#contentContainer:after { -webkit-transform: rotate(1.5deg); -moz-transform: rotate(1.5deg); -o-transform: rotate(1.5deg); -ms-transform: rotate(1.5deg); transform: rotate(1.5deg); right: 10px; left: auto; }
+
+/* header container */
+header.container { line-height: 22px; padding-top: 20px; padding-bottom: 20px; width: 845px; position: relative; margin: 0 auto; height: auto; text-shadow: 0 1px 0 #fff; font-family: "Header Font", "Lucida Grande", "Gill Sans", Tahoma; } header.container h1 { color: #191919; font-size: 32px; display: inline-block; *display: inline; } header.container span { color: #999; margin-left: 20px; display: inline-block; *display: inline; font-style: italic; }
+
+/* user_entry */
+.user_entry { margin-top: 0 !important; }
+.user_entry .header { background: #eee; padding: 10px 15px; color: #000; }
+.user_entry .holder { background: #ffffff; padding: 10px 15px; color: #444; border: 1px solid #eee; border-bottom-left-radius: 6px; border-bottom-right-radius: 6px; }
+
+/* column containers */
+.column { display: inline-block; float: left; word-break: normal; color: #2d2d2d; } .column.first, .column.last { margin-left: 0; } .column.last { float: right; }
+[class*="row"] { width: 845px; position: relative; margin: 5px auto; } [class*="row"]:after { content: "."; display: block; height: 0; clear: both; visibility: hidden; } [class*="row"] { zoom: 1; }
+.row1column .column { width: 843px; } .row3column .column { width: 266px; margin-right: 20px; } .row3column .column.last { margin: 0; }
