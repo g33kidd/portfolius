@@ -30,11 +30,12 @@ $sites = $user->site_count($_SESSION['id']);
 		<div class="container">
 			<? $dash->init(get_site_id()); ?>
 			<div class="dashMain" id="main">
+				<? echo $dash->themeoptions(); ?>
 			</div>
 		</div>
 		
 		<script src="//code.jquery.com/jquery-latest.js"></script>
-		<script src="assets/js/dashboard.php"></script>
+		<script src="assets/js/dashboarda.php"></script>
 		<script src="assets/js/site.js"></script>
 		
 	</body>

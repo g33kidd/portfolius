@@ -19,7 +19,7 @@ $options = array(
 	),
 	'gender' => array(
 		'type' => 'select',
-		'label' => 'gender',
+		'label' => 'Gender',
 		'options' => array(
 			1 => "Male",
 			2 => "Female",
