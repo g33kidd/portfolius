@@ -14,4 +14,8 @@ body:before { content: ""; position: fixed; top: -10px; left: 0; width: 100%; he
 
 /* USER SPECIFIC CONTAINERS */
 header.container { line-height: 22px; padding-top: 20px; padding-bottom: 20px; width: 845px; position: relative; margin: 0 auto; height: auto; text-shadow: 0 1px 0 #fff; font-family: "Header Font", "Lucida Grande", "Gill Sans", Tahoma; } header.container h1 { color: #191919; font-size: 32px; display: inline-block; *display: inline; padding-left: 2px; } header.container span { color: #999; margin-left: 20px; display: inline-block; *display: inline; font-style: italic; }
-.user_entry { margin-top: 0 !important; } .user_entry .header { background: #eee; padding: 10px 15px; color: #000; } .user_entry .holder { background: #ffffff; padding: 10px 15px; color: #444; border: 1px solid #eee; border-bottom-left-radius: 6px; border-bottom-right-radius: 6px; }
+.sleek.container .header { background: #eee; padding: 10px 15px; color: #000; } .sleek.container .holder { background: #ffffff; padding: 10px 15px; color: #444; border: 1px solid #eee; border-bottom-left-radius: 6px; border-bottom-right-radius: 6px; }
+.container.sleek.facebook .header, .container.sleek.twitter .header, .container.sleek.user .header { padding: 10px 15px; }
+.container.sleek.facebook .header, .container.sleek.twitter .header { color: #fff; text-shadow: none; }
+.container.sleek.twitter .header { background: blue; }
+.container.sleek.facebook .header { background: red; }
