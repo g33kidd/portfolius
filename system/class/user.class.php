@@ -1,5 +1,7 @@
 <?php
-
+if (!defined("_VALID_PHP"))
+	die('Direct access to this location is not allowed.');
+		
 Class user {
 	
 	public static function genSalt() {
@@ -110,7 +112,7 @@ Class user {
 				$verifyPass = self::veriPass($pw, $result['password']);
 				if($verifyPass){
 					$_SESSION['loggedin']   = true;
-	                $_SESSION['fullname']  = $result['fullname'];
+	                $_SESSION['fullname']   = $result['fullname'];
 	                $_SESSION['email']      = $result['email'];
 					return true;
 	                if($remember)
@@ -126,6 +128,14 @@ Class user {
             else
 				return false;
                 die("error");
+        }
+	
+		public function logout(){
+			unset($_SESSION['loggedin']);
+			unset($_SESSION['fullname']);
+			unset($_SESSION['email']);
+			session_destroy();
+			session_regenerate_id();
         }
 }
 
