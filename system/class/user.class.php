@@ -1,7 +1,10 @@
 <?php
 
 Class user {
-	
+	private function filter($Value)
+	{
+		return mysql_real_escape_string($Value);
+	}
 	public static function genSalt() {
 		$seed = '';
 		for($i = 0; $i < 16; $i++) {
@@ -101,7 +104,8 @@ Class user {
 		}
 	}
 
-	public function validate($email, $pw, $remember){
+	public function validate($email, $pw, $remember)
+	{
 		global $db;
             $query = $db->query("SELECT * FROM `users` WHERE `email` = '".$email."' LIMIT 1");
             if($query->rowCount())
@@ -109,10 +113,13 @@ Class user {
                 $result = $query->fetch(PDO::FETCH_COLUMN);
 				$verifyPass = self::veriPass($pw, $result['password']);
 				if($verifyPass){
+					$_SESSION['id']	= $result['id'];
 					$_SESSION['loggedin']   = true;
-	                $_SESSION['fullname']  = $result['fullname'];
+	                $_SESSION['fullname']   = $result['fullname'];
 	                $_SESSION['email']      = $result['email'];
+					
 					return true;
+					
 	                if($remember)
 	                {
 	                    setcookie("port_username", $email, time() + 60 * 60 * 24 * 365, "/");
@@ -126,7 +133,13 @@ Class user {
             else
 				return false;
                 die("error");
-        }
+    }
+	
+	public function update($UpdateRow, $UpdateValue)
+	{
+		mysql_real_escape_string($segment);
+		$query = $db->query("UPDATE `users` SET `".$this->filter($UpdateRow)."` = '".$this->filter($UpdateValue)."' WHERE `id` = '".$_SESSION['id']."'");
+	}
 }
 
 ?>
