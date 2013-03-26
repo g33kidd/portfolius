@@ -10,7 +10,7 @@ if (!defined("_VALID_PHP"))
 		public $files = array();
 		public $server = array();
       
-		public function __construct() {
+		public function __construct() { 
           $_GET = $this->clean($_GET);
           $_POST = $this->clean($_POST);
           $_COOKIE = $this->clean($_COOKIE);
