@@ -29,6 +29,7 @@
 					<form action="" method="post" id="login">
 						<input type="text" name="email" placeholder="Email Address" class="email"/>
 						<input type="password" name="password" placeholder="Password" class="password"/>
+						<input type="checkbox" name="remember" placeholder="Remember me" class="remember"/>
 						<input type="submit" name="submit-login" value="Login" id="submit-login"/>
 						<input type="hidden" name="request" value="login" id="request"/>
 					</form>
