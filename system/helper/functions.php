@@ -127,5 +127,5 @@ function CutName($text, $lenght = 45)
 {
     return (strlen($txt) > $lenght ? substr($text, 0, $lenght - 1).'...' : $text);
 }
-
+ 
 ?>
