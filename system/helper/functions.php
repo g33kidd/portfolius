@@ -49,7 +49,7 @@ function print_rr($arr) {
 	if(!empty($arr)){
 		echo "<pre>";
 		print_r($arr);
-		echo "<pre>";
+		echo "</pre>";
 	}
 }
 

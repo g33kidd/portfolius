@@ -182,8 +182,4 @@ Class site {
 	}
 }
 
-Class syntax extends site {
-
-}
-
 ?>
