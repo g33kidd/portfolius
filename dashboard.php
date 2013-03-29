@@ -3,6 +3,8 @@
 include_once("system/init.php"); 
 $sites = $user->site_count($_SESSION['id']);
 
+
+$dash->init(get_site_id());
 ?>
 <!doctype html>
 <html lang="en">
@@ -19,8 +21,15 @@ $sites = $user->site_count($_SESSION['id']);
 		<div class="topbar">
 			<div class="padding">
 				<div class="container">
-					<img src="assets/images/icons/partial.svg" class="logo left" width="25px" height="25px">
-					<div class="title left">Portfolius</div>
+					<div class="nav left">
+						<a href="#" class="item">Dashboard</a>
+						<a href="#" class="item">Sites</a>
+						<a href="#" class="item">Settings</a>
+					</div>
+					<div class="nav right">
+						<a href="#" class="item">Welcome, <? echo get_name(); ?>!</a>
+						<a href="#" class="item" id="logout"><span aria-hidden="true" class="icon-exit"></span></a>
+					</div>
 				</div>
 				<div class="clear"></div>
 			</div>
@@ -28,10 +37,10 @@ $sites = $user->site_count($_SESSION['id']);
 		<div class="topbar-space"></div>
 		
 		<div class="container">
-			<? $dash->init(get_site_id()); ?>
+
 			<div class="dashMain" id="main">
-				<? echo $dash->themeoptions(); ?>
 			</div>
+
 		</div>
 		
 		<script src="//code.jquery.com/jquery-latest.js"></script>

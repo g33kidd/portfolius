@@ -22,7 +22,8 @@ $(document).ready(function() {
 			
 		})
 	});
-		$('#login').submit(function(event) {
+
+	$('#login').submit(function(event) {
 		event.preventDefault();
 		var data = $(this).serializeArray();
 		$.post('system/request/post.php', data, function(response) {
@@ -43,25 +44,13 @@ $(document).ready(function() {
 		})
 	});
 	
-	//Create more later for better looking pages.
+	//Create more functions like this later for better looking pages.
     $("a.transition").click(function(event){
         event.preventDefault();
         linkLocation = this.href;
         $("body").fadeOut(1000, redirectPage);
     });
-         
-    function redirectPage() {
-        window.location = linkLocation;
-    }
-    
-    function scrollToAnchor(aid){
-	    var aTag = $("a[name='"+ aid +"']");
-	    $('html,body').animate({scrollTop: aTag.offset().top},'slow');
-	}
-	
-	$("#feature-scroll").click(function() {
-	   scrollToAnchor('features');
-	});
+    function redirectPage() { window.location = linkLocation; }
+    function scrollToAnchor(aid){ var aTag = $("a[name='"+ aid +"']"); $('html,body').animate({scrollTop: aTag.offset().top},'slow'); }
 
-	
 });

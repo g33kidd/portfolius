@@ -15,6 +15,15 @@ function is_user_loggedin() {
 	}
 }
 
+// Get current logged in user fullname.
+function get_name() {
+	if(isset($_SESSION['fullname'])){
+		return $_SESSION['fullname'];
+	}else{
+		return 'undefined';
+	}
+}
+
 // Get current logged in users Single Site ID.
 function get_site_id() {
 	global $db;
