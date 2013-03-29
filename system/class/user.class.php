@@ -1,5 +1,7 @@
 <?php
-
+if (!defined("_VALID_PHP"))
+	die('Direct access to this location is not allowed.');
+		
 Class user {
 	private function filter($Value)
 	{
@@ -117,10 +119,6 @@ Class user {
 					$_SESSION['id'] 	   = $result['id'];
 	                $_SESSION['fullname']  = $result['fullname'];
 	                $_SESSION['email']     = $result['email'];
-					$_SESSION['id']	= $result['id'];
-					$_SESSION['loggedin']   = true;
-	                $_SESSION['fullname']   = $result['fullname'];
-	                $_SESSION['email']      = $result['email'];
 					return true;
 					
 	                if($remember)
@@ -144,6 +142,14 @@ Class user {
 		mysql_real_escape_string($segment);
 		$query = $db->query("UPDATE `users` SET `".$this->filter($UpdateRow)."` = '".$this->filter($UpdateValue)."' WHERE `id` = '".$_SESSION['id']."'");
 	}
+	
+	public function logout(){
+		unset($_SESSION['loggedin']);
+		unset($_SESSION['fullname']);
+		unset($_SESSION['email']);
+		session_destroy();
+		session_regenerate_id();
+       }
 }
 
 ?>

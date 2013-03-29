@@ -1,5 +1,7 @@
 <?php
-
+if (!defined("_VALID_PHP"))
+	die('Direct access to this location is not allowed.');
+		
 Class site {
 	
 	// Site variables
@@ -179,6 +181,7 @@ Class site {
 		echo $tpl;
 	}
 	
+		return $tpl;
+	}
 }
-
 ?>

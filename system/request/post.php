@@ -32,9 +32,9 @@ switch($_POST['request']) {
 			$response['status'] = "error";
 			$response['type'] = "missing_fields";
 		}
-		
 	break;
 	case 'login':
+
 		$loggingin = $user->validate($_POST['email'], $_POST['password'], 0);
 		if($loggingin) {
 			$response['status'] = "success";
@@ -42,6 +42,29 @@ switch($_POST['request']) {
 		}else{
 			$response['status'] = "error";
 			$response['type'] = "unknown_login_error";
+
+		$email = htmlentities($_POST['email']);
+		$pass = htmlentities($_POST['password']);
+		$remember = htmlentities($_POST['remember']);
+		
+		if(!empty($email)&&!empty($pass)){
+			if($user->check_email_address($email)){
+				$loggeduser = $user->validate($email, $pass, $remember);
+				if($loggeduser) {
+					$response['status'] = "success";
+					$response['message'] = "everything is okay";
+					$response['trigger'] = "0"; // Equivalemt to just Complete
+				}else{
+					$response['status'] = "error";
+					$response['type'] = "bad_login";
+				}
+			}else{
+				$response['status'] = "error";
+				$response['type'] = "invalid_email";
+			}
+		}else{
+			$response['status'] = "error";
+			$response['type'] = "missing_fields";
 		}
 	break;
 	case 'site_count':
