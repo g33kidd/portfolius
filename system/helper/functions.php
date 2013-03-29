@@ -15,7 +15,6 @@ function is_user_loggedin() {
 	}
 }
 
-<<<<<<< HEAD
 // Get current logged in user fullname.
 function get_name() {
 	if(isset($_SESSION['fullname'])){
@@ -25,8 +24,6 @@ function get_name() {
 	}
 }
 
-=======
->>>>>>> trisztan
 // Get current logged in users Single Site ID.
 function get_site_id() {
 	global $db;
@@ -56,8 +53,6 @@ function print_rr($arr) {
 	}
 }
 
-<<<<<<< HEAD
-=======
 //simple sendmail function
 function sendMail($to, $title, $from, $subject = "Welcome", $message) {
 	$headers  = 'MIME-Version: 1.0' . "\r\n";
@@ -142,5 +137,4 @@ function CutName($text, $lenght = 45)
     return (strlen($txt) > $lenght ? substr($text, 0, $lenght - 1).'...' : $text);
 }
  
->>>>>>> trisztan
 ?>
