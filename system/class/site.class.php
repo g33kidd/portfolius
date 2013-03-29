@@ -180,8 +180,10 @@ Class site {
 		
 		echo $tpl;
 	}
-	
-		return $tpl;
-	}
 }
+
+Class syntax extends site {
+
+}
+
 ?>

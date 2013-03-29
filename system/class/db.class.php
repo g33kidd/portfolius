@@ -16,7 +16,7 @@ Class db extends PDO {
 	/* Example usage: db->query($query,PDO::FETCH_ASSOC or PDO::FETCH_BOTH); */
 	
 	public function query($querystr){
-		return($this->query($querystr));
+		return(parent::query($querystr));
     }
 		
 	/* Example usage: db->fetch($query,PDO::FETCH_ASSOC or PDO::FETCH_BOTH); */ 

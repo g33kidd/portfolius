@@ -106,35 +106,31 @@ Class user {
 		}
 	}
 
-	public function validate($email, $pw, $remember)
-	{
-		global $db;
-            $query = $db->query("SELECT id,email,password,fullname FROM users WHERE email='{$email}'");
-            if($query->rowCount())
-            {
-                $result = $query->fetch(PDO::FETCH_ASSOC);
-				$verifyPass = self::veriPass($pw, $result['password']);
-				if($verifyPass){
-					$_SESSION['loggedin']  = true;
-					$_SESSION['id'] 	   = $result['id'];
-	                $_SESSION['fullname']  = $result['fullname'];
-	                $_SESSION['email']     = $result['email'];
-					return true;
-					
-	                if($remember)
-	                {
-	                    setcookie("port_username", $email, time() + 60 * 60 * 24 * 365, "/");
-	                    setcookie("port_password", self::genHash($pw), time() + 60 * 60 * 24 * 365, "/");
-	                }
-					
-				}else{
-					return false;
-				}
-            }
-            else
-				return false;
-       		}
-                die("error");
+    public function validate($email, $pw, $remember) {
+    	global $db;
+    	$query = $db->query("SELECT id,email,password,fullname FROM users WERE email='{$email}'");
+    	if($query->rowCount()) {
+
+    		$result = $query->fetch(PDO::FETCH_ASSOC);
+    		$verifyPass = self::veriPass($pw, $result['password']);
+    		if($verifyPass) {
+    			$_SESSION['loggedin']  = true;
+				$_SESSION['id'] 	   = $result['id'];
+	            $_SESSION['fullname']  = $result['fullname'];
+	           	$_SESSION['email']     = $result['email'];
+	           	return true;
+
+	           	if($remember) {
+	           		setcookie("port_username", $email, time() + 60 * 60 * 24 * 365, "/");
+	                setcookie("port_password", self::genHash($pw), time() + 60 * 60 * 24 * 365, "/");
+	           	}else{
+	           		return false;
+	           	}
+    		}
+
+    	}else{
+    		return false;
+    	}
     }
 	
 	public function update($UpdateRow, $UpdateValue)
