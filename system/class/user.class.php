@@ -108,7 +108,7 @@ Class user {
 
     public function validate($email, $pw, $remember) {
     	global $db;
-    	$query = $db->query("SELECT id,email,password,fullname FROM users WERE email='{$email}'");
+    	$query = $db->query("SELECT id,email,password,fullname FROM users WHERE email='{$email}'");
     	if($query->rowCount()) {
 
     		$result = $query->fetch(PDO::FETCH_ASSOC);
@@ -145,7 +145,7 @@ Class user {
 		unset($_SESSION['email']);
 		session_destroy();
 		session_regenerate_id();
-       }
+    }
 }
 
 ?>

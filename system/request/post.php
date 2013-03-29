@@ -42,7 +42,7 @@ switch($_POST['request']) {
 		}else{
 			$response['status'] = "error";
 			$response['type'] = "unknown_login_error";
-
+		}
 		$email = htmlentities($_POST['email']);
 		$pass = htmlentities($_POST['password']);
 		$remember = htmlentities($_POST['remember']);
