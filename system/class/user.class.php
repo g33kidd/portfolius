@@ -1,5 +1,7 @@
 <?php
-
+if (!defined("_VALID_PHP"))
+	die('Direct access to this location is not allowed.');
+		
 Class user {
 
 	private function filter($Value) {
@@ -139,6 +141,16 @@ Class user {
 		$query = $db->query("UPDATE `users` SET `".$this->filter($UpdateRow)."` = '".$this->filter($UpdateValue)."' WHERE `id` = '".$_SESSION['id']."'");
 	}
 
+                die("error");
+        }
+	
+		public function logout(){
+			unset($_SESSION['loggedin']);
+			unset($_SESSION['fullname']);
+			unset($_SESSION['email']);
+			session_destroy();
+			session_regenerate_id();
+        }
 }
 
 ?>

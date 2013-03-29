@@ -1,4 +1,6 @@
 <?php
+define("_VALID_PHP", true);
+
 session_start();
 
 include_once('class/db.class.php');
@@ -11,5 +13,4 @@ $db = new db;
 $user = new user;
 $site = new site;
 $dash = new dashboard;
-
 ?>
