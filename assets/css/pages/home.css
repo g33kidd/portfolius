@@ -14,3 +14,13 @@ html, body { background-image:url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgA
 #l-PROFILE-ex .container-user-data span.-data-title { font-size: 35px; }
 #l-PROFILE-ex .container-user-data span.-data-subtitle { font-size: 18px; color: #d4d4d4; display: inline-block; padding-left: 12px; padding-top: 4px; }
 .c-EXAMPLE-profile-header .feature-landing-tagpro { text-align: center; font-family: "Segoe UI Light", "Segoe UI", "Lucida Grande"; font-size: 70px; color: #cecece; padding: 20px 10px; } /* "This is your stage" */
+
+/* -- :form -- */
+form.profile-signup { padding: 20px 0; position: relative; margin: 0 auto; width: 845px; }
+form.profile-signup input[type="text"], form.profile-signup input[type="password"] { border-radius: 3px; border: none; box-shadow: 0 1px 2px rgba(0,0,0,0.2) inset, 0 -1px 0 rgba(0,0,0,0.05) inset; transition: all 0.2s linear; font-family: "Helvetica Neue", sans-serif; font-size: 13px; color: #222222; position: relative; height: 36px; width: 320px; padding-left: 30px; }
+form.profile-signup input[type="text"]:focus, form.profile-signup input[type="password"]:focus { box-shadow: 0 1px 0 #ccc inset, 0 -1px 0 #ccc inset, 1px 0 0 #ccc inset, -1px 0 0 #ccc inset, 0 0 4px rgba(150,150,150,0.5); outline: none; }
+form.profile-signup input[type="text"]::-webkit-input-placeholder { color: #999999; } form.profile-signup input[type="text"]::-moz-input-placeholder { color: #999999; }
+form.profile-signup input[type="password"]::-webkit-input-placeholder { color: #999999; } form.profile-signup input[type="password"]::-moz-input-placeholder { color: #999999; }
+form.profile-signup input[type="password"] { margin-left: 6px; }
+form.profile-signup input[type="submit"] { margin-left: 20px; padding: 10px 28px; background: #1BA1E2; border-radius: 3px; border: none; box-shadow: 0 1px 2px rgba(0,0,0,0.2) inset, 0 -1px 0 rgba(0,0,0,0.05) inset; transition: all 0.2s linear; font-family: "Helvetica Neue", sans-serif; font-size: 13px; color: #fff; position: relative; height: 36px; }
+form.profile-signup input[type="submit"]:active { background: #0088CC; }

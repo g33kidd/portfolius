@@ -37,6 +37,13 @@
    	 </div>
    	 <div class="feature-landing-tagpro">This is your stage</div>
    	</section>
+   	<section class="container">
+   	 <form class="profile-signup" method="POST" action="">
+   	  <input type="text" name="example_name_one" placeholder="Enter some text ...">
+   	  <input type="password" name="example_name_two" placeholder="Enter some password ...">
+   	  <input type="submit">
+   	 </form>
+   	</section>
    </div>
   </div>
  </body>
