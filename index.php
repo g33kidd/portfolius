@@ -11,10 +11,11 @@
   <meta name="description" content="" />
   <meta name="viewport" content="width=device-width,initial-scale=1.0" />
   <link rel="stylesheet" type="text/css" href="assets/css/base.css" media="screen" title="no title" charset="utf-8" />
+  <link rel="stylesheet" type="text/css" href="assets/css/pages/home.css" media="screen" title="no title" charset="utf-8" />
  </head>
  <body>
   <div id="globalContainer">
-   <!-- -- :navigation: -- -->
+  	<div class="c-STATIC-overlay"></div>
    <div id="globalNavigation">
 	<div class="container">
 	 <ul>
@@ -23,8 +24,19 @@
 	 </ul>
 	</div>
    </div>
-   <!-- -- :content-container: -- -->
-   <div id="contentContainer">
+   <div id="contentContainer" class="has_overlay">
+   	<div class="container c-STATIC-overlay-feature">
+   	 <span>This is Portfolius</span>
+   	</div>
+   </div>
+   <div id="contentContainer" class="no_overlay">
+   	<section class="container c-EXAMPLE-profile-header">
+   	 <div id="l-PROFILE-ex">
+   	  <div class="container-user-cover"><img src="assets/images/landing/cover.jpg"></div>
+   	  <div class="container-user-data"><span class="-data-title">Joshua Kidd</span><span class="-data-subtitle">This is an example subtitle</span></div>
+   	 </div>
+   	 <div class="feature-landing-tagpro">This is your stage</div>
+   	</section>
    </div>
   </div>
  </body>
