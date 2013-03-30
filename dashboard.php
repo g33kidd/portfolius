@@ -44,7 +44,7 @@ $dash->init(get_site_id());
 		</div>
 		
 		<script src="//code.jquery.com/jquery-latest.js"></script>
-		<script src="assets/js/dashboarda.php"></script>
+		<script src="assets/js/dashboard.php"></script>
 		<script src="assets/js/site.js"></script>
 		
 	</body>
