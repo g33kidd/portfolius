@@ -3,10 +3,11 @@ if (!defined("_VALID_PHP"))
 	die('Direct access to this location is not allowed.');
 		
 Class user {
-	private function filter($Value)
-	{
+
+	private function filter($Value) {
 		return mysql_real_escape_string($Value);
 	}
+
 	public static function genSalt() {
 		$seed = '';
 		for($i = 0; $i < 16; $i++) {
@@ -106,35 +107,36 @@ Class user {
 		}
 	}
 
-    public function validate($email, $pw, $remember) {
-    	global $db;
-    	$query = $db->query("SELECT id,email,password,fullname FROM users WHERE email='{$email}'");
-    	if($query->rowCount()) {
+	public function validate($email, $pw, $remember) {
+		global $db;
+            $query = $db->query("SELECT id,email,password,fullname FROM users WHERE email='{$email}'");
+            if($query->rowCount())
+            {
+                $result = $query->fetch(PDO::FETCH_ASSOC);
+				$verifyPass = self::veriPass($pw, $result['password']);
+				if($verifyPass){
+					$_SESSION['id']	= $result['id'];
+					$_SESSION['loggedin']   = true;
+	                $_SESSION['fullname']   = $result['fullname'];
+	                $_SESSION['email']      = $result['email'];
+					return true;
+					
+	                if($remember)
+	                {
+	                    setcookie("port_username", $email, time() + 60 * 60 * 24 * 365, "/");
+	                    setcookie("port_password", self::genHash($pw), time() + 60 * 60 * 24 * 365, "/");
+	                }
+					
+				}else{
+					return false;
+				}
 
-    		$result = $query->fetch(PDO::FETCH_ASSOC);
-    		$verifyPass = self::veriPass($pw, $result['password']);
-    		if($verifyPass) {
-    			$_SESSION['loggedin']  = true;
-				$_SESSION['id'] 	   = $result['id'];
-	            $_SESSION['fullname']  = $result['fullname'];
-	           	$_SESSION['email']     = $result['email'];
-	           	return true;
-
-	           	if($remember) {
-	           		setcookie("port_username", $email, time() + 60 * 60 * 24 * 365, "/");
-	                setcookie("port_password", self::genHash($pw), time() + 60 * 60 * 24 * 365, "/");
-	           	}else{
-	           		return false;
-	           	}
-    		}
-
-    	}else{
-    		return false;
-    	}
+            }else{
+				return false;
+       		}
     }
-	
-	public function update($UpdateRow, $UpdateValue)
-	{
+
+    public function update($UpdateRow, $UpdateValue){
 		mysql_real_escape_string($segment);
 		$query = $db->query("UPDATE `users` SET `".$this->filter($UpdateRow)."` = '".$this->filter($UpdateValue)."' WHERE `id` = '".$_SESSION['id']."'");
 	}
@@ -146,6 +148,7 @@ Class user {
 		session_destroy();
 		session_regenerate_id();
     }
+
 }
 
 ?>

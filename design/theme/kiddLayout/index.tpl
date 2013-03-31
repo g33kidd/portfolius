@@ -11,9 +11,20 @@
 		<div class="sitetitle left">{$title}</div>
 		<div class="subtitle left">{$subtitle}</div>
 		<div class="clear"></div>
-		<hr />
-		<a href="http://twitter.com/{$twitter_username}"></a>
 	</div>
+
+	{init_twitter:g33k_kidd}
+		<strong>{twitter_followers}</strong>
+		<strong>{twitter_tweets}</strong>
+		{loop_tweets:5}
+			<strong>{twitter_username}</strong>
+			<strong>{tweet}</strong>
+		{end_loop}
+	{end_twitter}
+
+	{init_fb:kiddj2015}
+		<strong>{fb_friends}</strong>
+	{end_facebook}
 	
 </body>
 </html>
