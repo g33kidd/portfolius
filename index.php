@@ -36,13 +36,13 @@ if(is_user_loggedin())
 				<div class="container-user-cover"><img src="assets/images/landing/cover.jpg"></div>
 				<div class="container-user-data"><span class="-data-title">Joshua Kidd</span><span class="data-subtitle">This is an example subtitle</span></div>
 				</div>
-				<div class="feature-landing-tagpro">This is your stage</div>
+				<div class="feature-landing-tagpro">Alpha Status is now!</div>
 				</section>
 				<section class="container">
 					<form class="profile-signup" method="POST" action="">
 						<input type="text" name="email" placeholder="Email Address">
 						<input type="password" name="password" placeholder="Password">
-						<input type="submit" id="submit" value="">
+						<input type="submit" id="submit" value="Login" id="login">
 					</form>
 				</section>
 			</div>
