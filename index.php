@@ -39,11 +39,11 @@ if(is_user_loggedin())
 				<div class="feature-landing-tagpro">This is your stage</div>
 				</section>
 				<section class="container">
-				<form class="profile-signup" method="POST" action="">
-					<input type="text" name="email" placeholder="Email Address">
-					<input type="password" name="password" placeholder="Password">
-					<input type="submit" id="submit">
-				</form>
+					<form class="profile-signup" method="POST" action="">
+						<input type="text" name="email" placeholder="Email Address">
+						<input type="password" name="password" placeholder="Password">
+						<input type="submit" id="submit" value="">
+					</form>
 				</section>
 			</div>
 		</div>
