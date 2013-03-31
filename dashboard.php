@@ -2,7 +2,7 @@
 
 include_once("system/init.php"); 
 if(!is_user_loggedin())
-	header("Location:index.php");
+	//header("Location:index.php");
 $sites = $user->site_count($_SESSION['id']);
 
 

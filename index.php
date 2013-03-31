@@ -34,7 +34,7 @@ if(is_user_loggedin())
 				<section class="container c-EXAMPLE-profile-header">
 				<div id="l-PROFILE-ex">
 				<div class="container-user-cover"><img src="assets/images/landing/cover.jpg"></div>
-				<div class="container-user-data"><span class="-data-title">Joshua Kidd</span><span class="data-subtitle">This is an example subtitle</span></div>
+				<div class="container-user-data"><span class="-data-title">User Dashboard</span><span class="-data-subtitle">The most friendly of all site-builder UIs</span></div>
 				</div>
 				<div class="feature-landing-tagpro">Alpha Status is now!</div>
 				</section>
@@ -42,7 +42,8 @@ if(is_user_loggedin())
 					<form class="profile-signup" method="POST" action="">
 						<input type="text" name="email" placeholder="Email Address">
 						<input type="password" name="password" placeholder="Password">
-						<input type="submit" id="submit" value="Login" id="login">
+						<input type="submit" name="submit-login" value="Login" id="submit-login"/>
+						<input type="hidden" name="request" value="login" id="request"/>
 					</form>
 				</section>
 			</div>
