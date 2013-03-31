@@ -180,8 +180,6 @@ Class site {
 		
 		echo $tpl;
 	}
-	
-		return $tpl;
-	}	
 }
+
 ?>

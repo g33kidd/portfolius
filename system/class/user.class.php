@@ -141,16 +141,14 @@ Class user {
 		$query = $db->query("UPDATE `users` SET `".$this->filter($UpdateRow)."` = '".$this->filter($UpdateValue)."' WHERE `id` = '".$_SESSION['id']."'");
 	}
 
-                die("error");
-        }
-	
-		public function logout(){
-			unset($_SESSION['loggedin']);
-			unset($_SESSION['fullname']);
-			unset($_SESSION['email']);
-			session_destroy();
-			session_regenerate_id();
-        }
+	public function logout(){
+		unset($_SESSION['loggedin']);
+		unset($_SESSION['fullname']);
+		unset($_SESSION['email']);
+		session_destroy();
+		session_regenerate_id();
+    }
+    
 }
 
 ?>

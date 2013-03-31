@@ -8,9 +8,12 @@ include_once('helper/functions.php');
 include_once('class/user.class.php');
 include_once('class/site.class.php');
 include_once('class/dashboard.class.php');
+include_once('class/filter.class.php');
 
 $db = new db;
 $user = new user;
 $site = new site;
+$request = new filter;
 $dash = new dashboard;
+
 ?>
