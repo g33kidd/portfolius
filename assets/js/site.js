@@ -27,14 +27,17 @@ $(document).ready(function() {
 		event.preventDefault();
 		var data = $(this).serializeArray();
 		$.post('system/request/post.php', data, function(response) {
-			//response = jQuery.parseJSON(response);
+			response = jQuery.parseJSON(response);
 			console.log(response);
 			if (response.status == 'success'){
 				switch(response.trigger) {
 					case '0':
-						$('#signup').fadeOut('slow', function() {
-							$(this).html('<div class="complete"> Logged in, transfering! </div> <a href="dashboard.php" class="btn">Go to Dashboard.</button>')
-						}).fadeIn('fast');
+						$('#login').fadeOut('slow', function() {
+							$('#bigText').fadeOut(function() {
+								$(this).html("You are being logged in!");
+								setTimeout("location.href = 'dashboard.php';", 500);
+							}).fadeIn();
+						});
 						break;
 				}
 			}else if(response.status == 'error'){

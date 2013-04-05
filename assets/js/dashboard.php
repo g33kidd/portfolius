@@ -1,3 +1,1 @@
-<?php include_once("../../system/init.php");header("content-type: application/x-javascript"); ?>$(document).ready(function() {		var user_site_count = <? echo user_site_count(); ?>;	var main = $("#main");		//alert("something for <? echo $_SESSION['fullname']; ?>");		if(user_site_count < 1) {		main.load('design/dashboard/firstTime.html');	}else{		main.load('design/dashboard/customFieldsForm.php');	}
-	
-}); 
+<?php 	include_once("../../system/init.php");	header("content-type: application/x-javascript"); ?>$(document).ready(function() {		var user_site_count = <? echo user_site_count(); ?>;	var main = $("#main");		//alert("something for <? echo $_SESSION['fullname']; ?>");	}); 

@@ -1,5 +1,5 @@
 <?php
-error_reporting(E_ALL ^ E_DEPRECATED);
+error_reporting(E_ERROR | E_WARNING | E_PARSE);
 include_once('../init.php');
 $response = array();
 

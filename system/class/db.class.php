@@ -9,7 +9,8 @@ Class db extends PDO {
 		try {
 			parent::__construct($dsn, "portfolius", "guZEbe9r!");
 		}catch(PDOException $e) {
-			throw new PDOException("Couldn't connect to database: {$e}");
+			echo "<h1>Couldn't connect to Database!</h1>";
+			die;
 		}
 	}
 	

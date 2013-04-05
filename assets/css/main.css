@@ -1,0 +1,27 @@
+@import url(http://fonts.googleapis.com/css?family=Economica:400,700,400italic,700italic);
+html,body { height:100%; }
+body { padding:0; margin:0; background-color:rgba(237,237,244,1); }
+
+.left { float:left; }
+.right { float:right; }
+.clear { clear:both; }
+
+/* Header and Signup */
+.header { position:relative; height:100%; background-color:rgba(6,71,128,1); }
+.header .sitetitle { position:absolute; top:30px; left:30px; font-size:80px; font-family: 'Economica', sans-serif; }
+.header .sitepurpose { position:absolute; top:120px; left:100px; font-size:30px; font-family: 'Economica', sans-serif; font-style:italic; }
+.header .weoffer { position:absolute; top:220px; left:30px; width:300px; font-family:Arial, Helvetica, sans-serif; font-size:20px; }
+.header .signup { position:absolute; top:320px; right:20px; padding:20px 50px; background-color:rgba(160,194,222,0.6); }
+.header .links { position:absolute; top:500px; }
+
+.links .outter {
+	font-size:50px; font-family:Arial, Helvetica, sans-serif; }
+
+.signup input[type="text"],[type="email"],[type="password"] { padding:10px; float:left; outline:none; border-radius:5px; border:1px solid rgba(0,0,0,0.6); }
+.signup input[type="submit"] { padding:5px; float:left; width:100px; border-radius:3px; border:1px solid rgba(0,0,0,0.5); float:right; }
+
+/* Features and Info */
+.features { position:relative; height:100%; background-color:rgba(6,71,128,0.8); }
+
+/* Responsive/Containers */
+.container { width:1140px; margin:0 auto; position:relative; }

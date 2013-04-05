@@ -32,21 +32,24 @@ if(is_user_loggedin())
 			</div>
 			<div id="contentContainer" class="no_overlay">
 				<section class="container c-EXAMPLE-profile-header">
-				<div id="l-PROFILE-ex">
-				<div class="container-user-cover"><img src="assets/images/landing/cover.jpg"></div>
-				<div class="container-user-data"><span class="-data-title">User Dashboard</span><span class="-data-subtitle">The most friendly of all site-builder UIs</span></div>
-				</div>
-				<div class="feature-landing-tagpro">Alpha Status is now!</div>
+					<div id="l-PROFILE-ex">
+						<div class="container-user-cover"><img src="assets/images/landing/cover.jpg"></div>
+						<div class="container-user-data"><span class="-data-title">User Dashboard</span><span class="-data-subtitle">Most easiest site builder UIs.</span></div>
+					</div>
+					<div class="feature-landing-tagpro" id="bigText">Alpha Status... please login</div>
 				</section>
 				<section class="container">
-					<form class="profile-signup" method="POST" action="">
+					<form class="profile-signup" method="POST" action="" id="login">
 						<input type="text" name="email" placeholder="Email Address">
 						<input type="password" name="password" placeholder="Password">
-						<input type="submit" name="submit-login" value="Login" id="submit-login"/>
+						<input type="submit" name="login" value="Login" id="submit-login"/>
 						<input type="hidden" name="request" value="login" id="request"/>
 					</form>
 				</section>
 			</div>
 		</div>
+
+		<script src="//code.jquery.com/jquery-latest.js"></script>
+		<script src="assets/js/site.js"></script>
 	</body>
 </html>
