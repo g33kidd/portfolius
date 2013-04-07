@@ -1,8 +1,23 @@
 <?php
 require_once("system/init.php");
 session_destroy();
+function getQuestions () {
+		$questions = array();
+		$quesQuery = mysql_query("SELECT * FROM questions");
+		
+		while ($row = mysql_fetch_assoc($quesQuery)){
+			$questions[] = array(
+				'id' => $row['id'],
+				'questions' => $row['question']
+			);
+		}
+		
+		return $questions;
+		
+	}
 if(is_user_loggedin()) 
 	header("Location: dashboard.php");
+
 ?>
 <!DOCTYPE HTML>
 <html lang="en">
@@ -17,7 +32,16 @@ if(is_user_loggedin())
 	<body>
 		
 		<form action="" method="post">
-			<input type="text" name="email" placeholder="Email" />
+			<input type="text" name="email" placeholder="Email" /><br />
+			<select class="span4" id="qid">
+                <option value="0">Security Questions</option>
+				<?php
+					$questions = getQuestions();
+					foreach ($questions as $question) {
+						echo '<option value="', $question['id'], '">', $question['question'], '</option>';
+                    }
+                ?>
+            </select>
 		</form>
 		
 		<script src="//code.jquery.com/jquery-latest.js"></script>
