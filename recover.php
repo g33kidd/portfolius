@@ -3,7 +3,7 @@ require_once("system/init.php");
 session_destroy();
 function getQuestions () {
 		$questions = array();
-		$quesQuery = mysql_query("SELECT * FROM questions");
+		$quesQuery = mysql_query("SELECT `id`, `question` FROM questions");
 		
 		while ($row = mysql_fetch_assoc($quesQuery)){
 			$questions[] = array(
@@ -33,7 +33,7 @@ if(is_user_loggedin())
 		
 		<form action="" method="post">
 			<input type="text" name="email" placeholder="Email" /><br />
-			<select class="span4" id="qid">
+			<select id="id">
                 <option value="0">Security Questions</option>
 				<?php
 					$questions = getQuestions();
