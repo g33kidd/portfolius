@@ -17,6 +17,16 @@ Class user {
 		return $salt;
 	}
 	
+	public static function passwordRecover($email){
+		$dbemail = mysql_query("SELECT * FROM users");
+		if ($email === $dbemail) {
+			$genpas = sself::genHash($genpass);
+			mysql_query("UPDATE users SET password='$genpass' WHERE email='$email'");
+		} else {
+			echo 'bad email';
+		}
+	}
+	
 	public static function genHash($password) {
 		## password encryption using bcryt
 		$hash = crypt($password, '$2y$12' . '$' . self::genSalt());
