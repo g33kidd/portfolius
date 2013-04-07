@@ -5,11 +5,11 @@ if (!defined("_VALID_PHP"))
 Class db extends PDO {
 	
 	public function __construct() {
-		$dsn = "mysql:dbname=portfolius;host=portfolius.db.7245169.hostedresource.com";
+		$dsn = "mysql:dbname=codejo_main;host=212.48.68.86";
 		try {
-			parent::__construct($dsn, "portfolius", "guZEbe9r!");
+			parent::__construct($dsn, "codejo_db", "K7SLqTcQWVy9eckDqu");
 		}catch(PDOException $e) {
-			echo "<h1>Couldn't connect to Database!</h1>";
+			echo "<h1>Couldn't connect to Database!</h1><hr><h4>Reason:</h4><pre>{$e}</pre>";
 			die;
 		}
 	}

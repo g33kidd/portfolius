@@ -38,9 +38,14 @@ Class user {
 		$fullname = "{$first} {$last}";
 		$pass = self::genHash($pass);
 		$email = $email;
+		$current = mktime();
 		
-		$db->query("INSERT INTO users VALUES ('','','{$fullname}','{$email}','{$pass}','1','dashboard_options=0')");
-		return true;
+		if(self::exists($email)){
+			return false;
+		}else{
+			$db->insert("users", array('name'=>$fullname,'email'=>$email,'password'=>$pass,'acct_type'=>1,'active'=>1,'join_date'=>$current) );
+			return true;
+		}
 	}
 	
 	public static function get_user($email) {
@@ -109,7 +114,7 @@ Class user {
 
 	public function validate($email, $pw, $remember) {
 		global $db;
-            $query = $db->query("SELECT id,email,password,fullname FROM users WHERE email='{$email}'");
+            $query = $db->query("SELECT id,email,password,name FROM users WHERE email='{$email}'");
             if($query->rowCount())
             {
                 $result = $query->fetch(PDO::FETCH_ASSOC);
@@ -117,7 +122,7 @@ Class user {
 				if($verifyPass){
 					$_SESSION['id']	= $result['id'];
 					$_SESSION['loggedin']   = true;
-	                $_SESSION['fullname']   = $result['fullname'];
+	                $_SESSION['name']   = $result['name'];
 	                $_SESSION['email']      = $result['email'];
 					return true;
 					
@@ -143,7 +148,7 @@ Class user {
 
 	public function logout(){
 		unset($_SESSION['loggedin']);
-		unset($_SESSION['fullname']);
+		unset($_SESSION['name']);
 		unset($_SESSION['email']);
 		session_destroy();
 		session_regenerate_id();
