@@ -1,19 +1,20 @@
 <?php
 require_once("system/init.php");
 session_destroy();
-function getQuestions () {
+ function getQuestions() {
+		global $db;
 		$questions = array();
-		$quesQuery = mysql_query("SELECT `id`, `question` FROM questions");
 		
-		while ($row = mysql_fetch_assoc($quesQuery)){
+		$ques = $db->query("SELECT `id`, `question` FROM questions");
+		
+		while ($get = mysql_fetch_assoc($ques)) {
 			$questions[] = array(
-				'id' => $row['id'],
-				'questions' => $row['question']
+				'id' => $get['id'],
+				'question' => $get['question']
 			);
 		}
 		
 		return $questions;
-		
 	}
 if(is_user_loggedin()) 
 	header("Location: dashboard.php");

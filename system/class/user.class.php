@@ -53,6 +53,22 @@ Class user {
 		return true;
 	}
 	
+	public static function getQuestions() {
+		global $db;
+		$questions = array();
+		
+		$ques = $db->query("SELECT * FROM questions");
+		
+		while ($get = mysql_fetch_assoc($ques)) {
+			$questions[] = array(
+				'id' => $get['id'],
+				'question' => $get['question']
+			);
+		}
+		
+		return $questions;
+	}
+	
 	public static function get_user($email) {
 		global $db;
 		$query = $db->query("SELECT * FROM users WHERE email='{$email}'");
