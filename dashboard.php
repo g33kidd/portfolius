@@ -71,13 +71,6 @@ if(!is_user_loggedin())
 					</div>
 
 					<div class="span8">
-						<?php
-							$fileDir = '/home/codejo/storage/kiddj2015/2013/4/08/';
-							header('Content-type: image/png');
-							ob_flush();
-							print_r(file_get_contents($fileDir . "134081550_4c5edb52b46282766ce26d0e5030596b.png"));
-							ob_end_flush();
-						?>
 					</div>
 
 				</div>
