@@ -2,6 +2,7 @@
 
 define("_VALID_PHP", true);
 session_start();
+ob_start();
 
 include_once('class/db.class.php');
 include_once('helper/main_helper.php');

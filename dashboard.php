@@ -75,7 +75,9 @@ if(!is_user_loggedin())
 							$fileDir = '/home/codejo/storage/kiddj2015/2013/4/08/';
 							$contents = file_get_contents($fileDir . "134081550_4c5edb52b46282766ce26d0e5030596b.png");
 							header('Content-type: image/jpg');
+							ob_flush();
 							echo $contents;
+							ob_end_flush();
 						?>
 					</div>
 
