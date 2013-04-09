@@ -17,8 +17,8 @@ function is_user_loggedin() {
 
 // Get current logged in user fullname.
 function get_name() {
-	if(isset($_SESSION['fullname'])){
-		return $_SESSION['fullname'];
+	if(isset($_SESSION['name'])){
+		return $_SESSION['name'];
 	}else{
 		return 'undefined';
 	}
@@ -37,11 +37,18 @@ function get_site_id() {
 	}
 }
 
+function get_sites() {
+	global $db;
+	$sites = $db->query("SELECT id,owner,title FROM codejo_sites.site WHERE owner='{$_SESSION['id']}'");
+	$sites = $sites->fetchAll(PDO::FETCH_ASSOC);
+	return $sites;
+}
+
 function user_site_count() {
 	global $db;
 	$id_session = $_SESSION['id'];
-	//$sites = $db->query("SELECT id,owner FROM sites WHERE owner='{$id_session}'");
-	return "1";
+	$sites = $db->query("SELECT id,owner FROM codejo_sites.site WHERE owner='{$id_session}'");
+	return $sites->rowCount();
 }
 
 //prints an array with automatic <pre> tag rendering.
@@ -139,7 +146,24 @@ function CutName($text, $lenght = 45)
 
 // User functions
 function account_type() {
-	echo "Basic Account";
+	global $db;
+	$plan = $db->query("SELECT id,acct_type FROM codejo_main.users WHERE id='{$_SESSION['id']}'");
+	$plan = $plan->fetch(PDO::FETCH_ASSOC);
+	switch($plan['acct_type']) {
+		case '0': return "Free"; break;
+		case '1': return "Basic"; break;
+		case '2': return "Basic Pro"; break;
+		case '3': return "Pro"; break;
+		default: return "unknown"; break;
+	}
+}
+
+// Gets any column from the users table for user information.
+function userinfo($info='name') {
+	global $db;
+	$info = $db->query("SELECT {$info} FROM codejo_main.users WHERE id='{$_SESSION['id']}'");
+	$info = $info->fetch(PDO::FETCH_COLUMN);
+	return $info;
 }
 
 ?>

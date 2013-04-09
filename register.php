@@ -2,6 +2,6 @@
 // TEMP FILE :_)
 include_once("system/init.php");
 
-$db->lastInsertId();
+$user->add_user("Michael", "Brewster", "geekflyinghigh@gmail.com", "password123");
 
 ?>

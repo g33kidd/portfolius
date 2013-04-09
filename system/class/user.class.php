@@ -61,7 +61,7 @@ Class user {
 
 	public static function site_count($id) {
 		global $db;
-		$query = $db->query("SELECT id FROM sites WHERE owner='{$id}'");
+		$query = $db->query("SELECT id FROM sites.site WHERE owner='{$id}'");
 		$count = $query->rowCount();
 		return $count;
 	}

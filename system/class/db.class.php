@@ -4,6 +4,8 @@ if (!defined("_VALID_PHP"))
 	
 Class db extends PDO {
 	
+	// You can select other databases by doing something like this:
+	// $db->query("SELECT id,owner FROM codejo_sites.site WHERE owner='{$id_session}'");
 	public function __construct() {
 		$dsn = "mysql:dbname=codejo_main;host=212.48.68.86";
 		try {
@@ -34,6 +36,7 @@ Class db extends PDO {
 	
 	/* Example usage: db->exec($query); */ 
 	
+	/*
 	public function exec($querystr){
     	return $this->exec($querystr);
     }
@@ -82,7 +85,7 @@ Class db extends PDO {
 		return $this->lastInsertId($name);
 	}
 	
-	function errorInfo(){
+	public function errorInfo(){
 		return $this->errorInfo();
 	}
 	
