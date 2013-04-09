@@ -1,5 +1,5 @@
 <?php
 
-echo "THIS IS ERROR!";
+echo "THIS IS ERROR! AND IT'S TEST TOO!";
 
 ?>

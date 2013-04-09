@@ -1,1 +1,7 @@
 ErrorDocument 404 /portfolius/error.php
+
+Options +FollowSymLinks
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^dashboard/(.*)$ dashboard.php [L]

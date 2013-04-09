@@ -1,6 +1,5 @@
 <?php
 require_once("system/init.php");
-session_destroy();
 if(is_user_loggedin()) 
 	header("Location: dashboard.php");
 ?>
