@@ -119,6 +119,9 @@ switch($_POST['request']) {
 	case 'delete_site':
 		return false;
 	break;
+	case 'create_site':
+		
+	break;
 	case 'get_sessions':
 		$session = $_SESSION[$_GET['session']];
 		if(isset($session)){

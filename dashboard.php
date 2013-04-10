@@ -20,6 +20,7 @@ if(!is_user_loggedin())
 
 	    <!-- Loading Custom -->
 	    <link rel="stylesheet" href="assets/css/dashboard.css">
+
 	</head>
 	
 	<body>
@@ -90,11 +91,12 @@ if(!is_user_loggedin())
 								$sites = get_sites();
 								if(is_array($sites)){
 									foreach($sites as $site=>$val):?>
-										<tr><td><? echo $val['title']; ?></td></tr>
+										<tr><td><a href="#" data-site-id="<? echo $val['id']; ?>"><? echo $val['title']; ?></a></td></tr>
 									<?endforeach;
 								}else{
-									$title = $sites['title'];
-									?> <tr><td><? echo $title; ?></td></tr><?
+									$site_title = $sites['title'];
+									$site_id = $sites['id'];
+									?> <tr><td><a href="#" data-site-id="<? echo $site_id; ?>"><? echo $site_title; ?></a></td></tr><?
 								}
 							?>
 							</tbody>
@@ -105,7 +107,7 @@ if(!is_user_loggedin())
 					</div>
 
 					<div class="span8 pull-right">
-						<h3></h3>
+						<div id="site_pane"></div>
 					</div>
 				</div>
 			</div>

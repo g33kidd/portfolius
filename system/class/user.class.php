@@ -38,7 +38,7 @@ Class user {
 		$fullname = "{$first} {$last}";
 		$pass = self::genHash($pass);
 		$email = $email;
-		$current = mktime();
+		$current = time();
 		
 		if(self::exists($email)){
 			return false;

@@ -128,7 +128,14 @@ Class site {
 				}
 			}
 		}
-		
+	}
+
+	public function get_data($id) {
+		global $db;
+		$query = "SELECT * FROM codejo_sites.site WHERE id='{$id}'";
+		$site = $db->query($query);
+		$site = $site->fetch(PDO::FETCH_ASSOC);
+		return $site;
 	}
 	
 	public function customdata($name) {
