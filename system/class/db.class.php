@@ -4,21 +4,34 @@ if (!defined("_VALID_PHP"))
 	
 Class db extends PDO {
 	
+	// You can select other databases by doing something like this:
+	// $db->query("SELECT id,owner FROM codejo_sites.site WHERE owner='{$id_session}'");
 	public function __construct() {
-		$dsn = "mysql:dbname=portfolius;host=portfolius.db.7245169.hostedresource.com";
+		$dsn = "mysql:dbname=codejo_main;host=212.48.68.86";
 		try {
-			parent::__construct($dsn, "portfolius", "guZEbe9r!");
+			parent::__construct($dsn, "codejo_db", "K7SLqTcQWVy9eckDqu");
 		}catch(PDOException $e) {
-			echo "<h1>Couldn't connect to Database!</h1>";
+			echo "<h1>Couldn't connect to Database!</h1><hr><h4>Reason:</h4><pre>{$e}</pre>";
 			die;
 		}
 	}
 	
 	/* Example usage: db->query($query,PDO::FETCH_ASSOC or PDO::FETCH_BOTH); */
 	
-	public function query($querystr){
-		return(parent::query($querystr));
+	public function query($querystr){	
+		global $query_stat;
+		
+		$query_start_time = microtime(true); // Start time
+		$result = parent::query($querystr);
+		$query_end_time = microtime(true); // End time
+		
+		$query_stat[] = array('seconds' 	=> number_format($query_end_time - $query_start_time, 6) ,
+								'query' 	=> $querystr
+		);
+		
+		return $result;
     }
+
 		
 	/* Example usage: db->fetch($query,PDO::FETCH_ASSOC or PDO::FETCH_BOTH); */ 
 	
@@ -34,6 +47,7 @@ Class db extends PDO {
 	
 	/* Example usage: db->exec($query); */ 
 	
+	/*
 	public function exec($querystr){
     	return $this->exec($querystr);
     }
@@ -82,7 +96,7 @@ Class db extends PDO {
 		return $this->lastInsertId($name);
 	}
 	
-	function errorInfo(){
+	public function errorInfo(){
 		return $this->errorInfo();
 	}
 	

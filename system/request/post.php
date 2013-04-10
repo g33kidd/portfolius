@@ -103,6 +103,12 @@ switch($_POST['request']) {
 			}
 		}
 	break;
+	case 'logout':
+		$user->logout();
+		$response['status'] = "success";
+		$response['message'] = "logged out!"; 
+		$response['trigger'] = "0";
+	break;
 	case 'update_site':
 		// This request takes two parameters.
 		// $id which is the site ID and $data which should be a json_encoded Array of data to add/update.
