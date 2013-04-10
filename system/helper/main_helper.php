@@ -51,6 +51,40 @@ function user_site_count() {
 	return $sites->rowCount();
 }
 
+function max_sites() {
+	switch(userinfo('acct_type')) {
+		case 0:
+			return "1";
+		break;
+		case 1:
+			return "10";
+		break;
+		case 2:
+			return "25";
+		break;
+		case 3:
+			return "35";
+		break;
+	}
+}
+
+function month_price() {
+	switch(userinfo('acct_type')) {
+		case 0:
+			return "Free";
+		break;
+		case 1:
+			return "$2.99";
+		break;
+		case 2:
+			return "$4.99";
+		break;
+		case 3:
+			return "$15.99";
+		break;
+	}
+}
+
 //prints an array with automatic <pre> tag rendering.
 function print_rr($arr) {
 	if(!empty($arr)){

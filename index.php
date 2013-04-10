@@ -7,7 +7,7 @@ if(is_user_loggedin())
 <html lang="en">
 	<head>
 		<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
-		<title>Portfolius | Home</title>
+		<title>CodeJo | Home</title>
 		<meta name="description" content="" />
 		<meta name="viewport" content="width=device-width,initial-scale=1.0" />
 		<link rel="stylesheet" type="text/css" href="assets/css/base.css" media="screen" title="no title" charset="utf-8" />
@@ -20,13 +20,13 @@ if(is_user_loggedin())
 				<div class="container">
 				<ul>
 					<li class="nav-image logo"><img src="assets/images/icons/partial.svg"></li>
-					<li class="nav-item title">Portfolius</li>
+					<li class="nav-item title">CodeJo</li>
 				</ul>
 				</div>
 			</div>
 			<div id="contentContainer" class="has_overlay">
 				<div class="container c-STATIC-overlay-feature">
-					<span>This is Portfolius</span>
+					<span>This is CodeJo</span>
 				</div>
 			</div>
 			<div id="contentContainer" class="no_overlay">

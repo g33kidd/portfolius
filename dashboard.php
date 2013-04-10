@@ -10,7 +10,7 @@ if(!is_user_loggedin())
 	
 	<head>
 		<meta charset="UTF-8" />
-		<title>Portfolius Dashboard &mdash; create cool personal portfolio sites easy.</title>
+		<title>CodeJo &mdash; create a site the easy way.</title>
 		 <!-- Loading Bootstrap -->
 	    <link href="assets/css/bootstrap.css" rel="stylesheet">
 
@@ -39,7 +39,7 @@ if(!is_user_loggedin())
 							<li><a href="#" data-dash-page="store">Store</a></li>
 						</ul>
 						<ul class="nav pull-right">
-							<li><a href="#">Welcome, <? echo get_name(); ?></a>
+							<li><a href="#">Hello <? echo get_name(); ?>!</a>
 								<ul>
 									<li><a href="#" data-dash-page="settings">Settings</a></li>
 									<li><a href="#" id="logout">Logout</a></li>
@@ -60,11 +60,11 @@ if(!is_user_loggedin())
 
 					<div class="span3">
 						<h3>Basic Info</h3>
-						<table class="table table-striped account-info">
+						<table class="table table-hover table-striped account-info">
 							<tr><td>Account Type</td><td><? echo account_type(); ?></td></tr>
-							<tr><td>Storage</td><td>500 GB</td></tr>
-							<tr><td>Sites</td><td><? echo user_site_count(); ?></td></tr>
-							<tr><td>Monthly Price</td><td>$2.99</td></tr>
+							<tr><td>Storage</td><td>15 GB</td></tr>
+							<tr><td>Sites</td><td><? echo user_site_count(); ?> / <? echo max_sites(); ?></td></tr>
+							<tr><td>Monthly Price</td><td><? echo month_price(); ?></td></tr>
 						</table>
 						<hr>
 
@@ -83,8 +83,9 @@ if(!is_user_loggedin())
 				<div class="row">
 					<div class="span3">
 
-						<h3>My Sites</h3>
-						<table class="table table-hover table-striped sites-list">
+						<h3>My Sites <small><? echo user_site_count(); echo "/"; echo max_sites(); ?></small></h3>
+						<table class="table table-hover table-striped sites-list" id="sites-list">
+							<tbody id="sites-list-body">
 							<?php
 								$sites = get_sites();
 								if(is_array($sites)){
@@ -96,7 +97,8 @@ if(!is_user_loggedin())
 									?> <tr><td><? echo $title; ?></td></tr><?
 								}
 							?>
-							<tr><td><a href="#" data-action="add_site">Add another</a></td></tr>
+							</tbody>
+							<tr><td><a href="#" data-action="add_site">Create New</a></td></tr>
 						</table>
 						<hr>
 						
@@ -110,7 +112,10 @@ if(!is_user_loggedin())
 			<!-- End of Site Page -->
 			<!-- Start of Store Page -->
 			<div class="section" id="store">
-				
+				<div class="hero-unit">
+					<h1>Store Coming Soon!</h1>
+					<p>The store is a place where you can find themes, addons, and more for your sites... You can edit the ones you own too!</p>
+				</div>
 			</div>
 			<!-- End of Store Page -->
 			<!-- Start of Settings Page -->
