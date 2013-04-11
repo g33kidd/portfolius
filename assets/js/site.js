@@ -13,7 +13,7 @@ $(document).ready(function() {
 					case '0':
 						$('#signup-section').fadeOut('slow', function() {
 							$('#bigText').fadeOut(function() {
-								$(this).html("Account Successfully Created. You are redirect to Dasboard.");
+								$(this).html("Account Successfully Created. You are being redirect to Dasboard.");
 								setTimeout("location.href = 'dashboard.php';", 500);
 							}).fadeIn();
 						});

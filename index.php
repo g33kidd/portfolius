@@ -86,7 +86,7 @@ if(is_user_loggedin())
 						<div class="span3" style="margin-top:10px;">
 							<label class="checkbox" for="checkbox2">
 								<input type="checkbox" name="agree" checked="checked" value="yes" id="checkbox2">
-								&nbsp; I agree whit User Agreement.
+								&nbsp; I agree with User Agreement.
 							</label>
 						</div>
 						<div class="span3">

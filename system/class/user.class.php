@@ -141,11 +141,6 @@ Class user {
        		}
     }
 
-    public function update($UpdateRow, $UpdateValue){
-		mysql_real_escape_string($segment);
-		$query = $db->query("UPDATE `users` SET `".$this->filter($UpdateRow)."` = '".$this->filter($UpdateValue)."' WHERE `id` = '".$_SESSION['id']."'");
-	}
-
 	public function logout(){
 		unset($_SESSION['loggedin']);
 		unset($_SESSION['name']);
