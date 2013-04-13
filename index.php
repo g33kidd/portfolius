@@ -33,7 +33,7 @@ if(is_user_loggedin())
 				<section class="container c-EXAMPLE-profile-header">
 					<div id="l-PROFILE-ex">
 						<div class="container-user-cover"><img src="assets/images/landing/cover.jpg"></div>
-						<div class="container-user-data"><span class="-data-title">User Dashboard</span><span class="-data-subtitle">Most easiest site builder UIs.</span></div>
+						<div class="container-user-data"><span class="-data-title">User Dashboard</span><span class="-data-subtitle"></span></div>
 					</div>
 					<div class="feature-landing-tagpro" id="bigText">Alpha Status... please login</div>
 				</section>

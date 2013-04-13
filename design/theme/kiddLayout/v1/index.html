@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>{{ title }} &mdash; {{ subtitle }}</title>
+	<link rel="stylesheet" href="style.css" type="text/css"/>
+</head>
+<body>
+	
+	<div class="container">
+		<div class="sitetitle left">{{ title }}</div>
+		<div class="subtitle left">{{ subtitle }}</div>
+		<div class="clear"></div>
+		<br>
+		<br>
+		<h3>Contact info!</h3>
+		<ul>
+			{% for types, infos in contact %}
+			    <li>{{ types }}</li>
+			  {% for info in infos %}
+			      <ul><li>{{ info }}</li></ul>
+			  {% endfor %}
+			{% endfor %}
+		</ul>
+		<hr>
+		<h3>Social media!</h3>
+		<ul>
+			{% for net,link in social %}
+				<li><a href="http://{{ link }}" target="_new">{{ net }}</a></li>
+			{% endfor %}
+		</ul>
+	
+	</div>
+
+</body>
+</html>

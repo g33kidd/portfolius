@@ -23,4 +23,7 @@ $site = new site;
 $request = new filter;
 $dash = new dashboard;
 
+define("HOME_DIR", "/home/codejo/");
+define("THEME_DIR", "/themes/");
+
 ?>
