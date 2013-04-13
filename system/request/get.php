@@ -9,12 +9,15 @@ switch($_POST['request']) {
 	case 'site_data':
 		$id = $_POST['site_id'];
 		$site = $site->get_data($id);
-		print_rr($site);
+		$response['data'] = $site;
 	break;
 	case 'num_sites':
 		return user_site_count();
 	break;
 
 }
+
+$response = json_encode($response);
+print_r($response);
 
 ?>

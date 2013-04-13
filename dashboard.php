@@ -124,25 +124,30 @@ if(!is_user_loggedin())
 			<div class="section" id="settings">
 
 				<div class="row" id="account">
-
+					
+					<h3>Account Settings</h3>
 					<div class="span4">
-						<h3>Account Settings</h3>
-						<hr>
-						<input type="text" id="username" name="username" data-action="auto-update" placeholder="<? if(strlen(userinfo('username')) == 0){echo "Username";}else{echo userinfo('username');} ?>">
-						
+						<input type="text" id="username" name="username" data-action="update" placeholder="<? if(strlen(userinfo('username')) == 0){echo "Username";}else{echo userinfo('username');} ?>">
 					</div>
 
 				</div>
 
 				<div class="row" id="premium">
 
+					<h3>Premium Account Types</h3>
 					<div class="span3">
-					</div>
-					<div class="span3">
-					</div>
-					<div class="span3">
-					</div>
-					<div class="span3">
+						<h4>Free Plan</h4>
+						<p>Free</p>
+						<button name="plan-upgrade" data-plan-id="">Downgrade</button>
+						<h4>Basic Plan</h4>
+						<p>$2.99 /month</p>
+						<button name="plan-upgrade" data-plan-id="" disabled="true">Choose</button>
+						<h4>Basic Pro Plan</h4>
+						<p>$4.99 /month</p>
+						<button name="plan-upgrade" data-plan-id="">Upgrade</button>
+						<h4>Pro Plan</h4>
+						<p>$14.99 /month</p>
+						<button name="plan-upgrade" data-plan-id="">Upgrade</button>
 					</div>
 
 				</div>
