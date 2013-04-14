@@ -5,9 +5,9 @@ session_destroy();
 		global $db;
 		$questions = array();
 		
-		$ques = $db->query("SELECT `id`, `question` FROM questions");
+		$ques = $db->query("SELECT id, question FROM codejo_main.questions");
 		
-		while ($get = mysql_fetch_assoc($ques)) {
+		while ($get = $ques->fetch(PDO::FETCH_ASSOC)) {
 			$questions[] = array(
 				'id' => $get['id'],
 				'question' => $get['question']
