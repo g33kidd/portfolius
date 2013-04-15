@@ -1,6 +1,6 @@
 
 <!-- saved from url=(0067)https://raw.github.com/slaFFik/github-auto-deploy/master/deploy.php -->
-<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></head><body><pre style="word-wrap: break-word; white-space: pre-wrap;">&lt;?php
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></head><body><pre style="word-wrap: break-word; white-space: pre-wrap;"><?php
 
 /**
  *  Github automatic deployment script for php projects
@@ -246,4 +246,4 @@ class GAD{
 
 $deploy = new GAD($_POST['payload']);
 
-?&gt;</pre></body></html>
+?></pre></body></html>

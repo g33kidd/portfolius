@@ -108,8 +108,8 @@ if(!is_user_loggedin())
 
 					<div class="span8 pull-right">
 						<div id="site_pane">
-							<h2 id="site-title"></h2>
-							
+							<h2 id="pane-site-title"></h2>
+							<hr>
 						</div>
 					</div>
 				</div>
@@ -180,6 +180,7 @@ if(!is_user_loggedin())
 		
 		<script src="//code.jquery.com/jquery-latest.js"></script>
 		<script src="assets/js/flat/jquery.dropkick-1.0.0.js"></script>
+		<script src="assets/js/jquery.jeditable.js"></script>
 		<script src="assets/js/flat/bootstrap.js"></script>
 		<script src="//cdnjs.cloudflare.com/ajax/libs/jquery-placeholder/2.0.7/jquery.placeholder.min.js"></script>
 		<script src="assets/js/flat/jquery.tagsinput.js"></script>

@@ -86,14 +86,16 @@ switch($_POST['request']) {
 		return false;
 	break;
 	case 'create_site':
+		global $db;
 		if(isset($_SESSION['id'])){
 			$options = array('main'=>array("title"=>"title", "subtitle"=>"this is a subtitle."));
 			$options = json_encode($options);
-			$create = $site->create(1, 1, "kiddLayout:v1", "TEST", "");
+			$create = $site->create(1, 1, "kiddLayout:v1", "{$_POST['title']}", "");
 			if($create) {
 				$response['status'] = "success";
 				$response['message'] = "site created successfuly";
 				$response['trigger'] = "0";
+				$response['site'] = "{$_POST['title']}";
 			}else{
 				$response['status'] = "error";
 				$response['type'] = "site_not_created";

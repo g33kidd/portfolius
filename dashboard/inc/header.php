@@ -72,7 +72,7 @@
 									<a class="dropdown-toggle" data-toggle="dropdown" href="#">Profile</a>
 									<ul class="dropdown-menu top_menu">                        
 										<li class="profile group">
-											<?= get_user_thumbnail(); ?>
+											<img src='http://placehold.it/50x50&text=JK'>
 											<ul>
 												<li><strong><?= get_name(); ?></strong></li>
 												<li><?= userinfo('username'); ?></li>

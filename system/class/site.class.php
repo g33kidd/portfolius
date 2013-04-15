@@ -38,7 +38,7 @@ Class site {
 	public static function update($id, $data) {
 		global $db;
 		
-		$base = $db->query("SELECT options FROM sites WHERE id='{$id}'");
+		$base = $db->query("SELECT options FROM codejo_sites.site WHERE id='{$id}'");
 		if($base) {
 			$base = $base->fetch(PDO::FETCH_COLUMN);
 			$base = json_decode($base, true);
@@ -47,7 +47,7 @@ Class site {
 			$final_changes = array_replace($base, $data);
 			$final = json_encode($final_changes);
 			
-			$update = $db->query("UPDATE sites SET options='{$final}' WHERE id='{$id}'");
+			$update = $db->query("UPDATE codejo_sites.site SET options='{$final}' WHERE id='{$id}'");
 			if($update) {
 				return true;
 			}else{
@@ -62,7 +62,7 @@ Class site {
 	public static function delete($id) {
 		global $db;
 		if(self::exists($id)){
-			$query = $db->query("DELETE FROM sites WHERE id='{$id}'");
+			$query = $db->query("DELETE FROM codejo_sites.site WHERE id='{$id}'");
 			if($query){
 				return true;
 			}else{
@@ -74,7 +74,7 @@ Class site {
 	
 	public static function exists($id) {
 		global $db;
-		$query = $db->query("SELECT id,owner FROM sites WHERE id='{$id}'");
+		$query = $db->query("SELECT id,owner FROM codejo_sites.site WHERE id='{$id}'");
 		if($query->rowCount() < 1) {
 			return false;
 		}else{
