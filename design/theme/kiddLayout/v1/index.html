@@ -15,12 +15,16 @@
 		<br>
 		<h3>Contact info!</h3>
 		<ul>
-			{% for types, infos in contact %}
-			    <li>{{ types }}</li>
-			  {% for info in infos %}
-			      <ul><li>{{ info }}</li></ul>
-			  {% endfor %}
-			{% endfor %}
+			
+			{% autoescape %}
+				{% for types,infos in contact %}
+				    <li>{{ types|escape('html') }}</li>
+				  {% for info in infos %}
+				      <ul><li>{{ info|escape('html') }}</li></ul>
+				  {% endfor %}
+				{% endfor %}
+			{% endautoescape %}
+
 		</ul>
 		<hr>
 		<h3>Social media!</h3>

@@ -44,46 +44,51 @@ class __TwigTemplate_4f75de0db0680d7c3474b9a2015d313b extends Twig_Template
 \t\t<br>
 \t\t<h3>Contact info!</h3>
 \t\t<ul>
+\t\t\t
 \t\t\t";
-        // line 18
+        // line 20
+        echo "\t\t\t\t";
         $context['_parent'] = (array) $context;
         $context['_seq'] = twig_ensure_traversable((isset($context["contact"]) ? $context["contact"] : null));
         foreach ($context['_seq'] as $context["types"] => $context["infos"]) {
-            // line 19
-            echo "\t\t\t    <li>";
-            echo twig_escape_filter($this->env, (isset($context["types"]) ? $context["types"] : null), "html", null, true);
+            // line 21
+            echo "\t\t\t\t    <li>";
+            echo twig_escape_filter($this->env, (isset($context["types"]) ? $context["types"] : null), "html");
             echo "</li>
-\t\t\t  ";
-            // line 20
+\t\t\t\t  ";
+            // line 22
             $context['_parent'] = (array) $context;
             $context['_seq'] = twig_ensure_traversable((isset($context["infos"]) ? $context["infos"] : null));
             foreach ($context['_seq'] as $context["_key"] => $context["info"]) {
-                // line 21
-                echo "\t\t\t      <ul><li>";
-                echo twig_escape_filter($this->env, (isset($context["info"]) ? $context["info"] : null), "html", null, true);
+                // line 23
+                echo "\t\t\t\t      <ul><li>";
+                echo twig_escape_filter($this->env, (isset($context["info"]) ? $context["info"] : null), "html");
                 echo "</li></ul>
-\t\t\t  ";
+\t\t\t\t  ";
             }
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_iterated'], $context['_key'], $context['info'], $context['_parent'], $context['loop']);
             $context = array_merge($_parent, array_intersect_key($context, $_parent));
-            // line 23
-            echo "\t\t\t";
+            // line 25
+            echo "\t\t\t\t";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['types'], $context['infos'], $context['_parent'], $context['loop']);
         $context = array_merge($_parent, array_intersect_key($context, $_parent));
-        // line 24
-        echo "\t\t</ul>
+        // line 26
+        echo "\t\t\t";
+        // line 27
+        echo "
+\t\t</ul>
 \t\t<hr>
 \t\t<h3>Social media!</h3>
 \t\t<ul>
 \t\t\t";
-        // line 28
+        // line 32
         $context['_parent'] = (array) $context;
         $context['_seq'] = twig_ensure_traversable((isset($context["social"]) ? $context["social"] : null));
         foreach ($context['_seq'] as $context["net"] => $context["link"]) {
-            // line 29
+            // line 33
             echo "\t\t\t\t<li><a href=\"http://";
             echo twig_escape_filter($this->env, (isset($context["link"]) ? $context["link"] : null), "html", null, true);
             echo "\" target=\"_new\">";
@@ -94,7 +99,7 @@ class __TwigTemplate_4f75de0db0680d7c3474b9a2015d313b extends Twig_Template
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['net'], $context['link'], $context['_parent'], $context['loop']);
         $context = array_merge($_parent, array_intersect_key($context, $_parent));
-        // line 31
+        // line 35
         echo "\t\t</ul>
 \t
 \t</div>
@@ -115,6 +120,6 @@ class __TwigTemplate_4f75de0db0680d7c3474b9a2015d313b extends Twig_Template
 
     public function getDebugInfo()
     {
-        return array (  98 => 31,  87 => 29,  83 => 28,  77 => 24,  71 => 23,  62 => 21,  58 => 20,  53 => 19,  49 => 18,  40 => 12,  36 => 11,  25 => 5,  19 => 1,);
+        return array (  103 => 35,  92 => 33,  88 => 32,  81 => 27,  79 => 26,  73 => 25,  64 => 23,  60 => 22,  55 => 21,  50 => 20,  40 => 12,  36 => 11,  25 => 5,  19 => 1,);
     }
 }

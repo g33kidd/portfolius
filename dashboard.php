@@ -100,14 +100,17 @@ if(!is_user_loggedin())
 								}
 							?>
 							</tbody>
-							<tr><td><a href="#" data-action="add_site">Create New</a></td></tr>
+							<tr><td><a href="#createSiteModal" data-action="add_site" data-toggle="modal">Create New</a></td></tr>
 						</table>
 						<hr>
 						
 					</div>
 
 					<div class="span8 pull-right">
-						<div id="site_pane"></div>
+						<div id="site_pane">
+							<h2 id="site-title"></h2>
+							
+						</div>
 					</div>
 				</div>
 			</div>
@@ -155,9 +158,29 @@ if(!is_user_loggedin())
 			</div>
 			<!-- End of Settings Page -->
 		</div>
+
+		<div id="createSiteModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				<h3>Create New Site</h3>
+			</div>
+			<div class="modal-body">
+				<label for="site-name">Site Display Name:</label>
+				<input type="text" name="siteName" id="site-title" placeholder="Site Name">
+				<hr>
+				<label for="site-type">Type of Site:</label>
+				<input type="text" name="siteType" id="site-type" placeholder="1" disabled="true">
+				<hr>
+			</div>
+			<div class="modal-footer">
+				<a href="#" class="btn" data-dismiss="modal">Cancel</a>
+				<a href="#" class="btn btn-primary" data-action="create-site">Create</a>
+			</div>
+		</div>
 		
 		<script src="//code.jquery.com/jquery-latest.js"></script>
 		<script src="assets/js/flat/jquery.dropkick-1.0.0.js"></script>
+		<script src="assets/js/flat/bootstrap.js"></script>
 		<script src="//cdnjs.cloudflare.com/ajax/libs/jquery-placeholder/2.0.7/jquery.placeholder.min.js"></script>
 		<script src="assets/js/flat/jquery.tagsinput.js"></script>
 		<script src="assets/js/dashboard.js.php"></script>

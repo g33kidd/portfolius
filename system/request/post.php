@@ -69,6 +69,52 @@ switch($_POST['request']) {
 	case 'site_count':
 		echo "Coming Soon!";
 	break;
+	case 'logout':
+		$user->logout();
+		$response['status'] = "success";
+		$response['message'] = "logged out!"; 
+		$response['trigger'] = "0";
+	break;
+	case 'update_site':
+		// This request takes two parameters.
+		// $id which is the site ID and $data which should be a json_encoded Array of data to add/update.
+		
+		// DO THIS WHEN NOT FRUSTRATED :)
+		return false;
+	break;
+	case 'delete_site':
+		return false;
+	break;
+	case 'create_site':
+		if(isset($_SESSION['id'])){
+			$options = array('main'=>array("title"=>"title", "subtitle"=>"this is a subtitle."));
+			$options = json_encode($options);
+			$create = $site->create(1, 1, "kiddLayout:v1", "TEST", "");
+			if($create) {
+				$response['status'] = "success";
+				$response['message'] = "site created successfuly";
+				$response['trigger'] = "0";
+			}else{
+				$response['status'] = "error";
+				$response['type'] = "site_not_created";
+			}
+		}
+	break;
+	case 'get_sessions':
+		$session = $_SESSION[$_GET['session']];
+		if(isset($session)){
+			return $session;
+		}else{
+			return $_SESSION;
+		}
+	break;
+}
+
+$response = json_encode($response);
+print_r($response);
+
+/*
+
 	case 'create_site':
 		// This request takes one parameters.
 		// $uid which is the user ID of the Logged in user.
@@ -103,36 +149,7 @@ switch($_POST['request']) {
 			}
 		}
 	break;
-	case 'logout':
-		$user->logout();
-		$response['status'] = "success";
-		$response['message'] = "logged out!"; 
-		$response['trigger'] = "0";
-	break;
-	case 'update_site':
-		// This request takes two parameters.
-		// $id which is the site ID and $data which should be a json_encoded Array of data to add/update.
-		
-		// DO THIS WHEN NOT FRUSTRATED :)
-		return false;
-	break;
-	case 'delete_site':
-		return false;
-	break;
-	case 'create_site':
-		
-	break;
-	case 'get_sessions':
-		$session = $_SESSION[$_GET['session']];
-		if(isset($session)){
-			return $session;
-		}else{
-			return $_SESSION;
-		}
-	break;
-}
+*/
 
-$response = json_encode($response);
-print_r($response);
 
 ?>

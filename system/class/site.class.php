@@ -19,17 +19,20 @@ Class site {
 	 * premium(boolean)
 	 * violation(boolean)
 	 */
-	public static function create($owner, $data) {
+	public static function create($owner, $type, $theme, $title, $options) {
 		global $db;
-		
-		try {
-			$query = $db->query("INSERT INTO sites VALUES ('', '{$owner}', '{$data}', '0', '0', '0')");
-			return true;
-		}catch(PDOException $e) {
-			throw new PDOException("Could not create site: reason[ {$e} ]");
+		$query = "INSERT INTO codejo_sites.site VALUES ('','{$owner}','{$type}','{$theme}','{$title}','{$options}')";
+		if(user_site_count() <= max_sites()-1){
+			try{
+				$queryed = $db->query($query);
+				return true;
+			}catch(PDOException $e){
+				return false;
+				print_r("Not Working");
+			}
+		}else{
 			return false;
 		}
-		
 	}
 	
 	public static function update($id, $data) {
@@ -78,57 +81,6 @@ Class site {
 			return true;
 		}
 	}
-	
-	public static function options($id) {
-		global $db;
-		$query = $db->query("SELECT options FROM sites WHERE id='{$id}'");
-		$result = $query->fetch(PDO::FETCH_COLUMN);
-		return $result;
-	}
-	
-	public function config() {
-		
-		$config_file = "design/theme/{$this->theme}/options.php";
-		
-		if(file_exists($config_file)) {
-			$dependencies = array(
-				'assets/js/jquery.js' => 'script',
-				'assets/css/main.css' => 'stylesheet'
-			);
-			if(empty($dependencies)){ die; }else{ $this->id = $id; }
-			include $config_file;
-			
-			return true;
-		}else{
-			return false;
-		}
-		
-	}
-	
-	public function sitedata($name) {
-		$options = self::options($this->id);
-		$options = json_decode($options, true);
-		
-		foreach($options as $value=>$data) {
-			if(is_array($data)){
-				foreach($data as $val=>$dat) {
-					if(is_array($dat)){
-						foreach($dat as $v=>$d){
-							echo $d;
-						}
-					}else{
-						if($name == $val){
-							echo $dat;
-						}
-					}
-				}
-			}else{
-				if($name == $value){
-					echo $data;
-				}
-			}
-		}
-	}
 
 	public function get_data($id) {
 		global $db;
@@ -137,56 +89,7 @@ Class site {
 		$site = $site->fetch(PDO::FETCH_ASSOC);
 		return $site;
 	}
-	
-	public function customdata($name) {
-		
-	}
-	
-	public function initialize($id) {
-		
-		global $db;
-		// get site configuration.
-		$options = self::options($id);
-		$options = json_decode($options, true);
-		
-		$this->id = $id;
-		$this->data = $options['data'];
-		$this->custom = $options['custom_data'];
-		$this->theme = $options['theme'];
-		
-	}
 
-	public function page_load() {
-		
-		$data = $this->data;
-		$tpl = file_get_contents("design/theme/{$this->theme}/index.tpl");
-		
-		if(is_array($this->data)){
-			foreach($this->data as $key=>$value) {
-				if(is_array($value)){
-					foreach($value as $ky=>$va){
-						if(is_array($va)){
-							foreach($va as $k=>$v) {
-								$replace = "/\{\\\$".$k."\}/";
-								$tpl = preg_replace($replace, $v, $tpl);
-							}
-						}else{
-							$replace = "/\{\\\$".$ky."\}/";
-							$tpl = preg_replace($replace, $va, $tpl);
-						}
-					}
-				}else{
-					$replace = "/\{\\\$".$key."\}/";
-					$tpl = preg_replace($replace, $value, $tpl);
-				}
-			}
-		}
-		
-		$tpl = preg_replace("/\{\\\$(.*)\}/", "", $tpl);
-		$tpl = preg_replace("/\{\\\$theme_dir\}/", "design/theme/{$this->theme}", $tpl);
-		
-		echo $tpl;
-	}
 }
 
 ?>
