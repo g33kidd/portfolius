@@ -7,7 +7,7 @@ if(!isset($_POST['request']))
 
 switch($_POST['request']){
 	case 'setup':
-		$data = live_update();
+		
 	break;
 }
 

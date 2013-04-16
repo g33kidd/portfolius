@@ -1,24 +1,27 @@
-jQuery(function($) {
+/* 
+- forms_wizard.html specific script calls
 
-	$('#wizard').smartWizard({transitionEffect:'slideleft',onLeaveStep:leaveAStepCallback,onFinish:onFinishCallback,enableFinishButton:true});
+-->> --------------------------
+Table of Contents:
+1 - Prettify setup	
+-->> --------------------------- */
 
-	function leaveAStepCallback(obj) {
-		var step_num = obj.attr('rel');
-		return validateSteps(step_num);
+jQuery(function($) { 
+
+	/* --->> 1 - Prettify setup --------------*/	
+// Smart Wizard     	
+$('#wizard').smartWizard({transitionEffect:'slideleft',onLeaveStep:leaveAStepCallback,onFinish:onFinishCallback,enableFinishButton:true});
+
+function leaveAStepCallback(obj){
+	var step_num= obj.attr('rel');
+	return validateSteps(step_num);
+}
+
+function onFinishCallback(){
+	if(validateAllSteps()){
+		$('form').submit();
 	}
-
-	function onFinishCallback() {
-		if(validateAllSteps()){
-			$.ajax({
-				type: "POST",
-				url: "ajax/post.php",
-				data: $('form#setupAccount').serialize(),
-				dataType: "json"
-			}).done(function(msg){
-				alert(msg);
-			});
-		}
-	}
+}
 
 });
 
@@ -26,153 +29,116 @@ function validateAllSteps(){
 	var isStepValid = true;
 
 	if(validateStep1() == false){
-		isStepValid() = false;
-		$('#wizard').smartWizard('setError', {stepnum:1,iserror:true});
+		isStepValid = false;
+		$('#wizard').smartWizard('setError',{stepnum:1,iserror:true});         
 	}else{
-		$('#wizard').smartWizard('setError', {stepnum:1,iserror:false});
-	}
-
-	if(validateStep2() == false){
-		isStepValid() = false;
-		$('#wizard').smartWizard('setError', {stepnum:2,iserror:true});
-	}else{
-		$('#wizard').smartWizard('setError', {stepnum:2,iserror:false});
+		$('#wizard').smartWizard('setError',{stepnum:1,iserror:false});
 	}
 
 	if(validateStep3() == false){
-		isStepValid() = false;
-		$('#wizard').smartWizard('setError', {stepnum:3,iserror:true});
+		isStepValid = false;
+		$('#wizard').smartWizard('setError',{stepnum:3,iserror:true});         
 	}else{
-		$('#wizard').smartWizard('setError', {stepnum:3,iserror:false});
+		$('#wizard').smartWizard('setError',{stepnum:3,iserror:false});
 	}
 
-	if(validateStep4() == false){
-		isStepValid() = false;
-		$('#wizard').smartWizard('setError', {stepnum:4,iserror:true});
-	}else{
-		$('#wizard').smartWizard('setError', {stepnum:4,iserror:false});
+	if(!isStepValid){
+		$('#wizard').smartWizard('showMessage','Please correct the errors in the steps and continue');
+	}
+
+	return isStepValid;
+} 	
+
+
+function validateSteps(step){
+	var isStepValid = true;
+	// validate step 1
+	if(step == 1){
+		if(validateStep1() == false ){
+			isStepValid = false; 
+			$('#wizard').smartWizard('showMessage','Please correct the errors in step'+step+ ' and click next.');
+			$('#wizard').smartWizard('setError',{stepnum:step,iserror:true});         
+		}else{
+			$('#wizard').smartWizard('setError',{stepnum:step,iserror:false});
+		}
+	}
+
+	// validate step3
+	if(step == 3){
+		if(validateStep3() == false ){
+			isStepValid = false; 
+			$('#wizard').smartWizard('showMessage','Please correct the errors in step'+step+ ' and click next.');
+			$('#wizard').smartWizard('setError',{stepnum:step,iserror:true});         
+		}else{
+			$('#wizard').smartWizard('setError',{stepnum:step,iserror:false});
+		}
 	}
 
 	return isStepValid;
 }
 
-function validateSteps(step) {
-	var isStepValid = true;
-
-	if(step == 1){
-		if(validateStep1() == false){
-			isStepValid = false;
-			$('#wizard').smartWizard('showMessage', 'Please fix errors in this step and click next.')
-			$('#wizard').smartWizard('setError',{stepnum:step,iserror:true});
-		}else{
-			$('#wizard').smartWizard('setError',{stepnum:step,iserror:false});
-		}
-	}
-
-	if(step == 2){
-		if(validateStep2() == false){
-			isStepValid = false;
-			$('#wizard').smartWizard('showMessage', 'Please fix errors in this step and click next.')
-			$('#wizard').smartWizard('setError',{stepnum:step,iserror:true});
-		}else{
-			$('#wizard').smartWizard('setError',{stepnum:step,iserror:false});
-		}
-	}
-
-	if(step == 3){
-		if(validateStep1() == false){
-			isStepValid = false;
-			$('#wizard').smartWizard('showMessage', 'Please fix errors in this step and click next.')
-			$('#wizard').smartWizard('setError',{stepnum:step,iserror:true});
-		}else{
-			$('#wizard').smartWizard('setError',{stepnum:step,iserror:false});
-		}
-	}
-
-	if(step == 4){
-		if(validateStep4() == false){
-			isStepValid = false;
-			$('#wizard').smartWizard('showMessage', 'Please fix errors in this step and click next.')
-			$('#wizard').smartWizard('setError',{stepnum:step,iserror:true});
-		}else{
-			$('#wizard').smartWizard('setError',{stepnum:step,iserror:false});
-		}
-	}
-}
-
-function validateStep1() {
-	var isValid = true;
-
-	var user = $('#username').val();
-	var pass = $('#password').val();
-	var pass2 = $('#cpassword').val();
-
-	if(!user && user.length <= 0){
+function validateStep1(){
+	var isValid = true; 
+	// Validate Username
+	var un = $('#username').val();
+	if(!un && un.length <= 0){
 		isValid = false;
-		$('#msg_username').html('Please fill out username.').show();
+		$('#msg_username').html('Please fill username').show();
 	}else{
 		$('#msg_username').html('').hide();
 	}
 
-	if(!pass && pass.length <= 0){
+	// validate password
+	var pw = $('#password').val();
+	if(!pw && pw.length <= 0){
 		isValid = false;
-		$('#msg_password').html('Please fill out password.').show();
+		$('#msg_password').html('Please fill password').show();         
 	}else{
 		$('#msg_password').html('').hide();
 	}
 
-	if(!pass2 && pass2.length <= 0){
+	// validate confirm password
+	var cpw = $('#cpassword').val();
+	if(!cpw && cpw.length <= 0){
 		isValid = false;
-		$('#msg_cpassword').html('Please fill out password.').show();
+		$('#msg_cpassword').html('Please fill confirm password').show();         
 	}else{
 		$('#msg_cpassword').html('').hide();
-	}
+	}  
 
-	if(pass && pass.length > 0 && pass2 && pass2.length > 0){
-		if(pass != pass2) {
+	// validate password match
+	if(pw && pw.length > 0 && cpw && cpw.length > 0){
+		if(pw != cpw){
 			isValid = false;
-			$('#msg_cpassword').html('Passwords do not match.').show();
+			$('#msg_cpassword').html('Password mismatch').show();            
 		}else{
 			$('#msg_cpassword').html('').hide();
 		}
 	}
-
 	return isValid;
 }
 
-function validateStep2() {
-	var isValid = true;
-  //validate email  email
-  var email = $('#email').val();
-   if(email && email.length > 0){
-     if(!isValidEmailAddress(email)){
-       isValid = false;
-       $('#msg_email').html('Email is invalid').show();           
-     }else{
-      $('#msg_email').html('').hide();
-     }
-   }else{
-     isValid = false;
-     $('#msg_email').html('Please enter email').show();
-   }       
-  return isValid;
-}
-
-function validateStep3() {
-	var isValid = true;
-
+function validateStep3(){
+	var isValid = true;    
+	//validate email  email
+	var email = $('#email').val();
+	if(email && email.length > 0){
+		if(!isValidEmailAddress(email)){
+			isValid = false;
+			$('#msg_email').html('Email is invalid').show();           
+		}else{
+			$('#msg_email').html('').hide();
+		}
+	}else{
+		isValid = false;
+		$('#msg_email').html('Please enter email').show();
+	}       
 	return isValid;
 }
-
-function validateStep4() {
-	var isValid = true;
-
-	return isValid;
-}
-
 
 // Email Validation
 function isValidEmailAddress(emailAddress) {
 	var pattern = new RegExp(/^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i);
-		return pattern.test(emailAddress);
-}
+	return pattern.test(emailAddress);
+} 
+

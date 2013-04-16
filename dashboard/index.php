@@ -64,7 +64,29 @@ if(!is_user_loggedin())
 					<div class="span9">
 						<div class="row-fluid">
 							<div class="span12">
-								
+
+								<div class="widget">
+									<h3>
+										Test Content
+										<a id="toggle_widget_info" class="btn-side-collapse btn btn-inverse" >
+											<span class="sweet-gray sweet-go-back-from-screen">&nbsp;</span>              
+										</a>
+									</h3>
+									<section class="welly">
+										<h4>Text TEST</h4>
+					                          <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem.</p>
+					                          
+					                          <h4>Overflowing text to show optional scrollbar</h4>
+					                          <p>We set a fixed <code>max-height</code> on the <code>.modal-body</code>. Watch it overflow with all this extra lorem ipsum text we have included.</p>
+					                          <p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+					                          <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
+					                          <p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.</p>
+					                          <p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+					                          <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
+					                          <p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.</p>
+									</section>
+								</div>
+
 							</div>
 						</div><!--/row-->
 

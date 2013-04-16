@@ -220,16 +220,16 @@ if(!isset($_GET['code'])||$_GET['code']=="" && !isset($_GET['email'])||$_GET['em
 
 <!-- ===================== JS ===================== -->
 <script src="https://js.stripe.com/v1/"></script>
-<script src="js/libs/jquery-1.7.2.min.js"></script>    
-<script src="js/libs/bootstrap.min.js"></script>   
-<script src="js/libs/ios-orientationchange-fix.js"></script>      
-<script src="js/libs/jquery-ui-1.8.20.custom.min.js"></script>      
-<script src="js/common.js"></script>
-
-<!-- Site specific - JS -->     
-<script src="js/plugins/formswizard/jquery.smartWizard-2.0.min.js"></script>
-<script src="js/script.js"></script>
-<script src="js/specific/setup.js"></script>
+    <script src="js/libs/jquery-1.7.2.min.js"></script>    
+    <script src="js/libs/bootstrap.min.js"></script>   
+    <script src="js/libs/ios-orientationchange-fix.js"></script>      
+    <script src="js/libs/jquery-ui-1.8.20.custom.min.js"></script>      
+    <script src="js/common.js"></script>                 
+    
+    <!-- Site specific - JS -->     
+    <script src="js/plugins/formswizard/jquery.smartWizard-2.0.min.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/specific/setup.js"></script>
 
 
 </body>
