@@ -1,7 +1,7 @@
 $(document).ready(function() {
 
 	init();
-	var realtime = setInterval(function() { live(); }, 5000);
+	var realtime = setInterval(function() { live(); }, 10000);
 
 	// Real-Time functionality
 	// This will update areas of the site for real time.
@@ -38,6 +38,13 @@ $(document).ready(function() {
 
 	// Updates sites list on menu-bar
 	function updateSiteList(sites) {
+
+		$("#site_list").empty()
+		$.each(sites, function(i, site) {
+			var li = $("<li><a href='#' data-site-id='"+ site.id +"'>"+ site.title +"</a></li>");
+			$("#site_list").append(li);
+		});
+
 	}
 
 	// Updates all the necessary real-time charts

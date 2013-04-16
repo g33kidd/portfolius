@@ -1,8 +1,11 @@
 <?php 
 
-include_once("system/init.php"); 
-if(!is_user_loggedin())
+include_once("system/init.php");
+if(!is_user_loggedin()) :
 	header("Location:index.php");
+else:
+	header("Location:dashboard/");
+endif;
 	
 ?>
 <!DOCTYPE html>

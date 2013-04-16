@@ -31,11 +31,19 @@ $(document).ready(function() {
 			console.log(response);
 			if (response.status == 'success'){
 				switch(response.trigger) {
-					case '0':
+					case 0:
 						$('#login').fadeOut('slow', function() {
 							$('#bigText').fadeOut(function() {
 								$(this).html("You are being logged in!");
-								setTimeout("location.href = 'dashboard.php';", 500);
+								setTimeout("location.href = '/dashboard/';", 500);
+							}).fadeIn();
+						});
+					break;
+					case 1:
+						$('#login').fadeOut('slow', function() {
+							$('#bigText').fadeOut(function() {
+								$(this).html("You are being logged in!");
+								setTimeout("location.href = '/dashboard/setup.php';", 500);
 							}).fadeIn();
 						});
 					break;

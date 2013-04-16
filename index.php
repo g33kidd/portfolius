@@ -1,7 +1,7 @@
 <?php
 require_once("system/init.php");
 if(is_user_loggedin()) 
-	header("Location: dashboard.php");
+	header("Location: dashboard/");
 ?>
 <!DOCTYPE HTML>
 <html lang="en">

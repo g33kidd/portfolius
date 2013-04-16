@@ -47,6 +47,11 @@ Class user {
 			return true;
 		}
 	}
+
+	public static function update_user($fields, $data){
+		global $db;
+		
+	}
 	
 	public static function get_user($email) {
 		global $db;
