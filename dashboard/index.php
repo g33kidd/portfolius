@@ -71,6 +71,10 @@ if(!is_user_loggedin())
 											</ul>
 										</header>
 										<section class="">
+											Actually some test content here!
+											<br>
+											<br>
+											Actually some test content here!
 										</section>
 									</div>
 								</div>
