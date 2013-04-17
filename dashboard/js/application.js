@@ -38,13 +38,15 @@ $(document).ready(function() {
 
 	// Updates sites list on menu-bar
 	function updateSiteList(sites) {
-
 		$("#site_list").empty()
 		$.each(sites, function(i, site) {
 			var li = $("<li><a href='#' data-site-id='"+ site.id +"'>"+ site.title +"</a></li>");
 			$("#site_list").append(li);
 		});
+	}
 
+	function postingWidget() {
+		
 	}
 
 	// Updates all the necessary real-time charts

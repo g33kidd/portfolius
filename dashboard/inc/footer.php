@@ -39,16 +39,16 @@
 		</div>
 	</div>
 
-	<!-- ===================== JS ===================== -->
-	<script src="js/libs/jquery-1.7.2.min.js"></script>    
-	<script src="js/libs/bootstrap.min.js"></script>   
-	<script src="js/libs/ios-orientationchange-fix.js"></script>          
-	<script src="js/libs/jquery-ui-1.8.20.custom.min.js"></script>
-	<script src="js/plugins/widgets/jquery.sparkline.min.js"></script>
-	<script src="js/common.js"></script>  
+<!-- ===================== JS ===================== -->
+<script src="js/libs/jquery-1.7.2.min.js"></script>    
+<script src="js/libs/bootstrap.min.js"></script>   
+<script src="js/libs/ios-orientationchange-fix.js"></script>          
+<script src="js/libs/jquery-ui-1.8.20.custom.min.js"></script>
+<script src="js/plugins/widgets/jquery.sparkline.min.js"></script>
+<script src="js/common.js"></script>  
 
-	<!-- Site specific --> 
-	<script src="js/libs/prettify.js"></script>
+<!-- Site specific --> 
+<script src="js/libs/prettify.js"></script>
 <!--[if lt IE 9]>
 <script type="text/javascript" src="js/plugins/charts/excanvas.min.js"></script>
 <![endif]-->

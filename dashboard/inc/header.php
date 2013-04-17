@@ -42,7 +42,6 @@
 			<![endif]-->
 		</head>
 		<body class="main_nav_hover">
-			<div id="loader_cont"><img src="img/loaders/page_loader.gif"></div>  
 			<div class="navbar navbar-fixed-top">
 				<div class="navbar-inner">
 					<div class="container">

@@ -42,6 +42,28 @@ function get_site_id() {
 	}
 }
 
+function hasSiteTypePost() {
+	global $db;
+	$sites = $db->query("SELECT id,owner,type FROM codejo_sites.site WHERE owner='{$_SESSION['id']}'");
+	$sites = $sites->rowCount();
+	if($sites == 0){
+		return false;
+	}else{
+		return true;
+	}
+}
+
+function isSiteTypePost($id) {
+	global $db;
+	$sites = $db->query("SELECT id,owner,type FROM codejo_sites.site WHERE id='{$id}'");
+	$sites = $sites->fetch(PDO::FETCH_COLUMN);
+	if($sites == 0){
+		return false;
+	}else{
+		return true;
+	}
+}
+
 function get_sites() {
 	global $db;
 	$sites = $db->query("SELECT id,owner,title FROM codejo_sites.site WHERE owner='{$_SESSION['id']}'");
