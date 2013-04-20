@@ -12,6 +12,11 @@ Class dashboard extends site {
 		
 		$this->theme = $options['theme'];
 	}
+
+	public function premiumPlans() {
+		global $db;
+		
+	}
 	
 	// Dynamically creates fields based off of themes options.php file.
 	public function themeoptions() {

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<!-- HTML Resume Template from http://www.alexking.org/software/resume/ -->
+<html>
+<head>
+<title>{{ title }} &mdash; {{ subtitle }}</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<style type="text/css" media="screen">
+	@import url(http://alexking.org/site/projects/html-resume-template/demo/resume.php?output=css_screen);
+</style>
+<link rel="stylesheet" type="text/css" media="print" href="http://alexking.org/site/projects/html-resume-template/demo/resume.php?output=css_print" />
+</head>
+
+<body>
+
+<h1>{{ name }}</h1>
+
+<p id="bio_left">
+{{ contact.phone }}<br /><a href="mailto:{{ contact.email }}">{{ contact.email }}</a>
+</p>
+<p id="bio_right">
+{{ address.street }}<br />{{ address.city }}, {{ address.state }} {{ address.zip }}</p>
+
+<h2>OBJECTIVE</h2>
+<p class="data">{{ objective }}</p>
+
+<p id="references">References available upon request.</p>
+</body>
+</html>

@@ -38,6 +38,7 @@ Class user {
 		$fullname = "{$first} {$last}";
 		$pass = self::genHash($pass);
 		$email = $email;
+<<<<<<< HEAD
 		$current = mktime();
 		
 		if(self::exists($email)){
@@ -46,6 +47,21 @@ Class user {
 			$db->insert("users", array('name'=>$fullname,'email'=>$email,'password'=>$pass,'acct_type'=>1,'active'=>1,'join_date'=>$current) );
 			return true;
 		}
+=======
+		$current = time();
+		
+		if(self::exists($email)){
+			return false;
+		}else{
+			$db->insert("users", array('name'=>$fullname,'email'=>$email,'password'=>$pass,'acct_type'=>1,'active'=>1,'join_date'=>$current) );
+			return true;
+		}
+	}
+
+	public static function update_user($fields, $data){
+		global $db;
+		
+>>>>>>> kiddj2015
 	}
 	
 	public static function get_user($email) {

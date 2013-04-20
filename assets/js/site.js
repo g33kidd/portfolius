@@ -34,14 +34,30 @@ $(document).ready(function() {
 			console.log(response);
 			if (response.status == 'success'){
 				switch(response.trigger) {
+<<<<<<< HEAD
 					case '0':
 						$('#login-section').fadeOut('slow', function() {
+=======
+					case 0:
+						$('#login').fadeOut('slow', function() {
+>>>>>>> kiddj2015
 							$('#bigText').fadeOut(function() {
 								$(this).html("You are being logged in!");
-								setTimeout("location.href = 'dashboard.php';", 500);
+								setTimeout("location.href = '/dashboard/';", 500);
 							}).fadeIn();
 						});
 					break;
+<<<<<<< HEAD
+=======
+					case 1:
+						$('#login').fadeOut('slow', function() {
+							$('#bigText').fadeOut(function() {
+								$(this).html("You are being logged in!");
+								setTimeout("location.href = '/dashboard/setup.php';", 500);
+							}).fadeIn();
+						});
+					break;
+>>>>>>> kiddj2015
 				}
 			}else if(response.status == 'error'){
 				alert('There was an error: ' + response.type);

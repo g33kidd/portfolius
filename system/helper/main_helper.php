@@ -24,6 +24,11 @@ function get_name() {
 	}
 }
 
+function get_user_thumbnail() {
+	// get blob from DB later....
+	return "<img src='http://placehold.it/50x50&text=JK'>";
+}
+
 // Get current logged in users Single Site ID.
 function get_site_id() {
 	global $db;
@@ -37,6 +42,18 @@ function get_site_id() {
 	}
 }
 
+function isSiteTypePost($id) {
+	global $db;
+	$sites = $db->query("SELECT id,owner,type FROM codejo_sites.site WHERE id='{$id}'");
+	$sites = $sites->fetch(PDO::FETCH_COLUMN);
+	if($sites == 0){
+		return false;
+	}else{
+		return true;
+	}
+}
+
+>>>>>>> kiddj2015:system/helper/main_helper.php
 function get_sites() {
 	global $db;
 	$sites = $db->query("SELECT id,owner,title FROM codejo_sites.site WHERE owner='{$_SESSION['id']}'");
@@ -49,6 +66,40 @@ function user_site_count() {
 	$id_session = $_SESSION['id'];
 	$sites = $db->query("SELECT id,owner FROM codejo_sites.site WHERE owner='{$id_session}'");
 	return $sites->rowCount();
+}
+
+function max_sites() {
+	switch(userinfo('acct_type')) {
+		case 0:
+			return "1";
+		break;
+		case 1:
+			return "10";
+		break;
+		case 2:
+			return "25";
+		break;
+		case 3:
+			return "35";
+		break;
+	}
+}
+
+function month_price() {
+	switch(userinfo('acct_type')) {
+		case 0:
+			return "0.00";
+		break;
+		case 1:
+			return "2.99";
+		break;
+		case 2:
+			return "4.99";
+		break;
+		case 3:
+			return "15.99";
+		break;
+	}
 }
 
 //prints an array with automatic <pre> tag rendering.
@@ -156,6 +207,20 @@ function account_type() {
 		case '3': return "Pro"; break;
 		default: return "unknown"; break;
 	}
+}
+// get number of themes the user has in their account.
+function user_themes() {
+	global $db;
+	$theme_count = $db->query("SELECT id,user_id,theme_id FROM codejo_main.themes WHERE user_id='{$_SESSION['id']}'");
+	$count = $theme_count->rowCount();
+	return $count;
+}
+
+function user_entries() {
+	global $db;
+	$entries = $db->query("SELECT id,user_id FROM codejo_sites.entry WHERE user_id='{$_SESSION['id']}'");
+	$count = $entries->rowCount();
+	return $count;
 }
 
 // Gets any column from the users table for user information.
