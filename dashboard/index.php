@@ -64,26 +64,30 @@ if(!is_user_loggedin())
 			<div class="row-fluid">
 				<div class="span12">
 					<div class="span6">
-						<div class="widget">
-							<header>
-								<h3>Quick Post</h3>
-								<ul class="toggle_content">                           
-									<li class="arrow"><a href="#">Toggle Content</a></li>
-								</ul>
-							</header>
-							<section class="welly">
-								<form class="basic_from">
-									<label>Where is this going?</label>
-									<select class="span12" id="post-site-list" name="quick_post">
-									</select>
-									<label>Title</label>
-									<input type="text" class="span12" placeholder="ex: Crazy Cat Images">
-									<label>Content</label>
-									<textarea class="span12" style="resize:none;"></textarea>
-									<button type="submit" class="btn btn-inverse span12 no_space">Post to Site</button>
-								</form>
-							</section>
-						</div>
+						<? if(hasSiteTypePost()) : ?>
+							<div class="widget">
+								<header>
+									<h3>Quick Post</h3>
+									<ul class="toggle_content">                           
+										<li class="arrow"><a href="#">Toggle Box</a></li>
+									</ul>
+								</header>
+								<section class="welly">
+									<form class="basic_from">
+										<? if(user_site_count() > 1) : ?>
+										<label>Where is this going?</label>
+										<select class="span12" id="post-site-list" name="quick_post">
+										</select>
+										<? endif; ?>
+										<label>Title</label>
+										<input type="text" class="span12" placeholder="ex: Crazy Cat Images">
+										<label>Content</label>
+										<textarea class="span12" style="resize:none;"></textarea>
+										<button type="submit" class="btn btn-inverse span12 no_space">Post to Site</button>
+									</form>
+								</section>
+							</div>
+						<? endif; ?>
 					</div>
 					<div class="span6">
 						<div class="widget">

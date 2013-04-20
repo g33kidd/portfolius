@@ -46,7 +46,6 @@ $(document).ready(function() {
 	}
 
 	function postingWidget() {
-		
 	}
 
 	// Updates all the necessary real-time charts
